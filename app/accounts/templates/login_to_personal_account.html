@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/asd.css" %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__main">
+                <div class="header__logo">
+                    <a class="header__logo-link" href="#">
+                        <img class="header__logo-img" src="{% static "images/logo.svg" %}" alt="logo">
+                    </a>
+                    <p class="header__logo-text">
+                        Личный кабинет потребителя
+                    </p>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-items">
+                            <a class="header__nav-link" href="#">
+                                <img class="header__help" src="{% static "images/help.svg" %}" alt="help">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header__nav-link" href="#">
+                                <img class="header__notification" src="{% static "images/notification.svg" %}" alt="notification">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="regisration">
+                <div class="registration__main">
+                    <h2 class="registration__title">
+                        Вход в личный кабинет
+                    </h2>
+                    <div class="registration__text">
+                        <p class="registration__text-content">Нет учетной записи?</p>
+                        <a class="registration__text-content registration__link" href="registration.html">Зарегистрироваться</a>
+                    </div>
+                </div>
+                <form action="/register" method="POST" class="registration__form">
+                    <div class="registration__form-group">
+                        <label class="form-group__label" for="email">
+                            E-mail
+                        </label>
+                        <input class="from-group__input" type="email" id="email" name="email" placeholder="Введите E-mail">
+                    </div>
+                    <div class="registration__form-group">
+                        <label class="form-group__label" for="password">
+                            Пароль
+                        </label>
+                        <input class="from-group__input" type="password" id="password" name="password" placeholder="Введите пароль">
+                    </div>
+                    <div class="registration__form-checkbox">
+                        <div class="form-checkbox">
+                            <input class="form-checkbox__input" type="checkbox" id="checkbox" name="checkbox">
+                            <label class="form-checkbox__label" for="checkbox">
+                                Запомнить меня
+                            </label>
+                        </div>
+                        <a class="form-checkbox__link" href="#">
+                            Забыли пароль?
+                        </a>
+                    </div>
+                    <div class="registration__form-button">
+                        <input class="form-button__btn" type="button" value="Войти">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="footer__items">
+                    <div class="footer__items-left">
+                        <img src="{% static "images/logo.svg" %}" alt="logo" class="footer__items-left-img-logo">
+                        <p class="footer__items-left-text">©ООО “ДТС”, 2023</p>
+                    </div>
+                    <div class="footer__items-right">
+                        <p class="footer__items-right-title">
+                            Офис обслуживания
+                        </p>
+                        <p class="footer__items-right-text">
+                            г. Батайск, ул. Козлова, д. 32<br>
+                            Тел: +7 (86352) 24-25-2<br>
+                            Пн- Пт: 17:00 - 22:00<br>
+                            Сб-Вс: выходной<br>
+                            mail@mail.ru
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
