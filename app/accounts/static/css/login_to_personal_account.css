@@ -15,6 +15,7 @@
     --gray-gray-6: #868e96;
     --gray-gray-7: #495057;
     --blue-blue-9: #1864ab;
+    --red-red-7: #f03e3e;
 }
 
 * {
@@ -66,6 +67,7 @@ body {
     display: flex;
     gap: 19px;
 }
+
 
 /* main */
 
@@ -152,6 +154,23 @@ body {
     font-size: 16px;
     line-height: 155%;
     color: var(--gray-gray-5);
+}
+
+.from-group__input[type="email"] {
+    padding-left: 14px;
+}
+
+.from-group__input[type="password"] {
+    padding-left: 14px;
+}
+
+.error_star {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 155%;
+    color: var(--red-red-7);
+    display: none;
 }
 
 .registration__form-checkbox {
@@ -259,4 +278,9 @@ body {
     font-weight: 400;
     font-size: 12px;
     line-height: 155%;
+}
+
+.items-right-text__phone {
+    color: var(--blue-blue-9);
+    text-decoration: none;
 }
