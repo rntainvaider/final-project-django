@@ -14,7 +14,7 @@
             <div class="header__main">
                 <div class="header__logo">
                     <a class="header__logo-link" href="#">
-                        <img class="header__logo-img" src="{% static "assets/img/logo.svg" %}" alt="logo">
+                        <img class="header__logo-img" src="{% static "images/logo.svg" %}" alt="logo">
                     </a>
                     <p class="header__logo-text">
                         Личный кабинет потребителя
@@ -24,12 +24,12 @@
                     <ul class="header__nav-list">
                         <li class="header__nav-items">
                             <a class="header__nav-link" href="#">
-                                <img class="header__help" src="assets/img/help.svg" alt="help">
+                                <img class="header__help" src="{% static "images/help.svg" %}" alt="help">
                             </a>
                         </li>
                         <li>
                             <a class="header__nav-link" href="#">
-                                <img class="header__notification" src="assets/img/notification.svg" alt="notification">
+                                <img class="header__notification" src="{% static "images/notification.svg" %}" alt="notification">
                             </a>
                         </li>
                     </ul>
@@ -48,12 +48,13 @@
                         <p class="registration__text-content">
                             Нет учетной записи?
                         </p>
-                        <a class="registration__text-content registration__link" href="{% url "registration" %}">
+                        <a class="registration__text-content registration__link" href="{% url 'registration' %}">
                             Зарегистрироваться
                         </a>
                     </div>
                 </div>
-                <form action="{% url "index" %}" method="POST" class="registration__form">
+                <form action="{% url 'login' %}" method="post" class="registration__form">
+                    {% csrf_token %}
                     <div class="registration__form-group">
                         <label class="form-group__label" for="email">
                             E-mail
@@ -85,7 +86,8 @@
                     </div>
                     <div class="registration__form-button">
                         <a href="{% url "index" %}">
-                            <input class="form-button__btn" type="button" value="Войти">
+                            {% comment %} <input class="form-button__btn" type="button" value="Войти"> {% endcomment %}
+                            <button class="form-button__btn" name="action">Войти</button>
                         </a>
                     </div>
                 </form>
@@ -97,7 +99,7 @@
             <div class="footer__main">
                 <div class="footer__items">
                     <div class="footer__items-left">
-                        <img src="assets/img/logo.svg" alt="logo" class="footer__items-left-img-logo">
+                        <img src="{% static "images/logo.svg" %}" alt="logo" class="footer__items-left-img-logo">
                         <p class="footer__items-left-text">©ООО “ДТС”, 2023</p>
                     </div>
                     <div class="footer__items-right">
