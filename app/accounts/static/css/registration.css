@@ -4,7 +4,7 @@
     --font3: "Segoe UI", sans-serif;
 
     /* color */
-	--white: #fff;
+    --white: #fff;
     --black: #000;
     --gray-gray-1: #f1f3f5;
     --gray-gray-2: #e9ecef;
@@ -147,9 +147,9 @@ body {
     gap: 16px;
 }
 
-.group__right {
-display: none;
-}
+/* .group__right {
+    display: none;
+} */
 
 .registration__form-group {
     display: flex;
@@ -164,6 +164,7 @@ display: none;
 }
 
 .error-star {
+    display: none;
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 16px;
@@ -185,6 +186,7 @@ display: none;
 }
 
 .form-group__input-error {
+    display: none;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
@@ -217,11 +219,16 @@ display: none;
 }
 
 .error-password__text {
+    display: none;
     font-family: var(--third-family);
     font-weight: 400;
     font-size: 14px;
     line-height: 155%;
     color: var(--red-red-6);
+}
+
+.error-password__images {
+    display: none;
 }
 
 .registration__form-checkbox {
@@ -262,11 +269,13 @@ display: none;
     align-items: center;
     margin-bottom: 24px;
 }
+
 .form--horizontal-stepper__line {
     width: 264px;
     height: 6px;
     background-color: #cccccc;
 }
+
 .form--horizontal-stepper__circle-one {
     border: 2px solid var(--blue-blue-9);
     border-radius: 32px;
@@ -281,6 +290,7 @@ display: none;
     align-items: center;
     justify-content: center;
 }
+
 .form--horizontal-stepper__circle-two {
     border-radius: 32px;
     width: 34px;

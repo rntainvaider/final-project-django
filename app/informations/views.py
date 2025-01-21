@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def information(request):
+    context = {"site_title": "Информация"}
+
+    return render(request, "information.html", context=context)
