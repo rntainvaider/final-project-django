@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
 from accounts.models import CustomUsers
@@ -11,7 +10,7 @@ def login_to_personal_account(request):
 
         custom_user = CustomUsers.objects.filter(email=email, password=password).first()
         if custom_user:
-            return redirect("index")
+            return redirect("information")
         else:
             context = {
                 "site_title": "Авторизация - Личный кабинет",
@@ -31,5 +30,5 @@ def registration(request):
     return render(request, "registration.html", context=context)
 
 
-def index(request):
-    return render(request, "index.html")
+def information(request):
+    return render(request, "information.html")
