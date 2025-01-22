@@ -21,6 +21,7 @@ let GroupLeft = document.querySelector(".group__left");
 // Регулярные выражения
 const PhoneRegex = /^\+\d\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/; // Поле Phone
 const EmailRegex = /^[A-z0-9.]+@[a-z]+\.[a-z]+$/; // Поле Email
+
 // Регулярные выражения поля Password
 const isLatinLetters = /^[A-z0-9]+$/; // Содержит только латинские буквы
 const isMinLength = /^.{8,}$/; // Содержит минимум 8 символов

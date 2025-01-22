@@ -156,13 +156,14 @@ body {
     color: var(--gray-gray-5);
 }
 
+/*
 .from-group__input[type="email"] {
     padding-left: 14px;
-}
+} */
 
-.from-group__input[type="password"] {
+/* .from-group__input[type="password"] {
     padding-left: 14px;
-}
+} */
 
 .error_star {
     font-family: var(--font-family);

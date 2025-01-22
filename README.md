@@ -5,4 +5,10 @@
 ## Чтобы запустить проект, нужно:
 1. Установить виртуальное окружение - `python -m venv venv`
 2. Установить зависимости - `pip install -r requirements.txt`
-3. Запустить проект - `python manage.py runserver`
+3. Создать файл - `.env` c такими переменными как
+   - `NAME=""`
+   - `USER=""`
+   - `PASSWORD=""`
+   - `HOST=""`
+   - `PORT=""`
+4. Запустить проект - `python manage.py runserver`

@@ -1,11 +1,408 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site_title }}</title>
+    <link rel="stylesheet" href="{% static "css/information.css" %}">
+    <script src="{% static "js/information.js" %}" defer></script>
 </head>
 <body>
-    <p>Главная страничка</p>
+    <header class="header">
+        <div class="container">
+            <div class="header__main">
+                <div class="header__main-left">
+                    <div class="header__logo">
+                        <a class="header__logo-link" href="#">
+                            <img class="header__logo-img" src="{% static "images/logo.svg" %}" alt="logo">
+                        </a>
+                        <p class="header__logo-text">Личный кабинет потребителя</p>
+                    </div>
+                    <form>
+                        <select class="header__bank-book" id="bank-book">
+                            <option class="header__option" value="123">123</option>
+                        </select>
+                    </form>
+                    <div class="header__">
+                        <p class="header__rub">13 456,00 ₽</p>
+                        <div class="header____">
+                            <p class="header__oplata">к оплате на 01.01.2023</p>
+                            <img src="{% static "images/rub.svg" %}" alt="rub">
+                        </div>
+                    </div>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-items">
+                            <a class="header__nav-link" href="#">
+                                <img class="header__help" src="{% static "images/help.svg" %}" alt="help">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="header__nav-link" href="#">
+                                <img class="header__notification" src="{% static "images/notification.svg" %}" alt="notification">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="divvvvv">
+                <section>
+                    <div class="main__sidebar--left">
+                        <nav>
+                            <ul class="sidebar--left__list">
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/informations.svg" %}" alt="Информация">
+                                        <a class="sidebar--left__link" href="{% url "information" %}">
+                                            Информация
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/bank-book.svg" %}" alt="Прибор учёта">
+                                        <a class="sidebar--left__link" href="#">
+                                            Приборы учёта
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="assets/img/history-of-charges-and-payments.svg" alt="История начислений и оплат">
+                                        <a class="sidebar--left__link" href="#">
+                                            История начислений и оплат
+                                            <img class="sidebar--left__down-arrow" src="{% static "images/down-arrow.svg" %}" alt="Стрелочка вниз">
+                                        </a>
+                                    </div>
+                                </li>
+                                <div class="sidebar--left__history-cha-and-pay">
+                                    <ul class="history-cha-and-pay__list">
+                                        <li class="history-cha-and-pay__items">
+                                            <a class="history-cha-and-pay__link" href="#">Начислено за текущий период</a>
+                                        </li>
+                                        <li class="history-cha-and-pay__items">
+                                            <a class="history-cha-and-pay__link" href="#">Начисления</a>
+                                        </li>
+                                        <li class="history-cha-and-pay__items">
+                                            <a class="history-cha-and-pay__link" href="#">Платежи</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/payments.svg" %}" alt="Оплаты">
+                                        <a class="sidebar--left__link" href="#">
+                                            Оплаты
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/quitantznii.svg" %}" alt="Квитанцнии">
+                                        <a class="sidebar--left__link" href="#">
+                                            Квитанцнии
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/message-square.svg" %}" alt="Обращения">
+                                        <a class="sidebar--left__link" href="#">
+                                            Обращения
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/notifications.svg" %}" alt="Уведомления">
+                                        <a class="sidebar--left__link" href="#">
+                                            Уведомления
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="images/сonsumer-personal-accounts.svg" alt="Лицевые счета потребителя">
+                                        <a class="sidebar--left__link" href="#">
+                                            Лицевые счета потребителя
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="sidebar--left__items">
+                                    <div class="sidebar--left__div">
+                                        <img class="sidebar--left__images" src="{% static "images/contacts.svg" %}" alt="Контакты">
+                                        <a class="sidebar--left__link" href="#">
+                                            Контакты
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="sidebar__user">
+                            <div class="user">
+                                <p class="user__fullname">
+                                    Иван Иванов Иванович
+                                </p>
+                                <p class="user__email">
+                                    mail@mail.ru
+                                </p>
+                            </div>
+                            <nav class="user__settings">
+                                <ul class="settings__list">
+                                    <li class="settings__items">
+                                        <img class="settings__images" src="{% static "images/settings.svg" %}" alt="Настройки">
+                                        <a class="settings__link" href="#">
+                                            Настройки
+                                        </a>
+                                    </li>
+                                    <li class="settings__items">
+                                        <img class="settings__images" src="{% static "images/exit.svg" %}" alt="Выйти">
+                                        <a class="settings__link" href="#">
+                                            Выйти
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <p class="content__title">
+                            Информация
+                        </p>
+                        <div class="content__left-right">
+                            <div class="content__left">
+                                <div class="content__one">
+                                    <p class="content__one-title">
+                                        Сведения о потребителе
+                                    </p>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            ФИО
+                                        </div>
+                                        <div class="div2">
+                                            Иванов Иван Иванович
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Номер текущего лицевого счёта
+                                        </div>
+                                        <div class="div2">
+                                            456461651654321365465
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Адрес помещения
+                                        </div>
+                                        <div class="div2">
+                                            344082, Ростовская область, г. Ростов-на-Дону, ул. Козлова, д.32, кв.44
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Площадь помещения
+                                        </div>
+                                        <div class="div2">
+                                            99 кв.м.
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Количество проживающих человек
+                                        </div>
+                                        <div class="div2">
+                                            332
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content__one">
+                                    <p class="content__one-title">
+                                        Сведения об офисе обслуживания
+                                    </p>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Адрес
+                                        </div>
+                                        <div class="div2">
+                                            г. Батайск, ул. Козлова, д. 32
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Номера телефона
+                                        </div>
+                                        <div class="div2">
+                                            +7 (86352) 24-25-2
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            График работы
+                                        </div>
+                                        <div class="div2">
+
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Понедельник-пятница
+                                        </div>
+                                        <div class="div2">
+                                            09:00 – 21:00
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Суббота-воскресенье
+                                        </div>
+                                        <div class="div2">
+                                            выходной
+                                        </div>
+                                    </div>
+                                    <div class="content__one-div">
+                                        <div class="div1">
+                                            Адреса электронной почты
+                                        </div>
+                                        <div class="div2">
+                                            mail@mail.ru
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content__two">
+                                    <button class="content__two-button">
+                                        Оставить обращение
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content__right">
+                                <p class="content__one-title">
+                                    Сведения об оплате
+                                </p>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Последний месяц учета
+                                    </div>
+                                    <div class="div2">
+                                        02.2023
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Последние показания ИПУ
+                                    </div>
+                                    <div class="div2">
+
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        — ИПУ №1111
+                                    </div>
+                                    <div class="div2">
+                                        52 м3
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        — ИПУ №1111
+                                    </div>
+                                    <div class="div2">
+                                        99 кв.м.
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Общий долг на 01.02.2023
+                                    </div>
+                                    <div class="div2">
+                                        13 456,00 ₽
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Начислено всего в текущем периоде
+                                    </div>
+                                    <div class="div2">
+                                        500,00 ₽
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Начислено пени всего
+                                    </div>
+                                    <div class="div2">
+                                        1 255 500,00 ₽
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Последняя олата
+                                    </div>
+                                    <div class="div2">
+                                        17 000,00 ₽ (02.12.2025)
+                                    </div>
+                                </div>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Итого долг
+                                    </div>
+                                    <div class="div2">
+                                        99 999 999,00 ₽
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content__right">
+                                <p class="content__one-title">
+                                    Сведения об оплате
+                                </p>
+                                <div class="content__one-div">
+                                    <div class="div1">
+                                        Последний месяц учета
+                                    </div>
+                                    <div class="div2">
+                                        02.2023
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="footer__items">
+                    <div class="footer__items-left">
+                        <img src="{% static "images/logo.svg" %}" alt="logo" class="footer__items-left-img-logo">
+                        <p class="footer__items-left-text">©ООО “ДТС”, 2023</p>
+                    </div>
+                    <div class="footer__items-right">
+                        <p class="footer__items-right-title">
+                            Офис обслуживания
+                        </p>
+                        <p class="footer__items-right-text">
+                            г. Батайск, ул. Козлова, д. 32<br>
+                            <a class="items-right-text__phone" href="tel:+78635224252">Тел: +7 (86352) 24-25-2</a><br>
+                            Пн- Пт: 17:00 - 22:00<br>
+                            Сб-Вс: выходной<br>
+                            mail@mail.ru
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
