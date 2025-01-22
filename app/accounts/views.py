@@ -59,3 +59,9 @@ def metering_devices(request):
     context = {"site_title": "Приборы учета"}
 
     return render(request, "metering_devices.html", context=context)
+
+
+def contacts(request):
+    context = {"site_title": "Контакты"}
+
+    return render(request, "contacts.html", context=context)
