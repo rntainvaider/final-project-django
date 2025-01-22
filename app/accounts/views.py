@@ -1,5 +1,3 @@
-import email
-
 from django.shortcuts import redirect, render
 
 from accounts.models import CustomUsers
@@ -42,11 +40,11 @@ def registration(request):
             create_custom_users.password = password
             create_custom_users.save()
 
-            return redirect("information")
+            return redirect("informations")
 
     context = {"site_title": "Регистрация"}
 
-    return render(request, "registration.html", context=context)
+    return render(request, "registrations.html", context=context)
 
 
 def informations(request):
