@@ -1,21 +1,26 @@
 let ErrorStar = document.querySelectorAll(".error_star");
+let FormFroupInputError = document.querySelectorAll(".form-group__input-error")
 let FormButtonBtn = document.querySelector(".form-button__btn");
 
-let RegistrationForm = document.querySelector(".registration__form");
-let FormGroupInputBorderRed = document.querySelector(".from-group__input-border__red");
+let AuthorizationForm = document.querySelector(".authorization__form");
 
-let FormGroupInput = document.querySelector(".from-group__input")
 let Email = document.getElementById("email");
 let Password = document.getElementById("password");
 
 // Регулярные выражения
 const EmailRegex = /^[A-z0-9.]+@[a-z]+\.[a-z]+$/; // Поле Email
+const PasswordRegex = /^[A-z0-9].{8,}$/; // Поле Password
 
 FormButtonBtn.addEventListener("click", (event) => {
 
-    // Скрываем все звездочки поля ErrorStar
+    // Скрываем поля ErrorStar
     for (let i = 0; i < ErrorStar.length; i++) {
         ErrorStar[i].style.display = "none";
+    }
+
+    // Скрываем поля FormFroupInputError
+    for (let i = 0; i < FormFroupInputError.length; i++) {
+        FormFroupInputError[i].style.display = "none";
     }
 
     // Отключаем отправку формы
@@ -34,9 +39,19 @@ FormButtonBtn.addEventListener("click", (event) => {
         hasError = true;
     }
 
+    if (!EmailRegex.test(Email.value)) {
+        FormFroupInputError[0].style.display = "inline";
+        hasError = true;
+    }
+
+    if (!PasswordRegex.test(Password.value)) {
+        FormFroupInputError[1].style.display = "inline";
+        hasError = true;
+    }
+
     // Если ошибок нет продолжаем отправку формы
     if (!hasError) {
-        RegistrationForm.submit();
+        AuthorizationForm.submit();
     }
 
 })
