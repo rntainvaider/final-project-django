@@ -40,23 +40,23 @@
     </header>
     <main class="main">
         <div class="container">
-            <div class="regisration">
-                <div class="registration__main">
-                    <h2 class="registration__title">
+            <div class="authorization">
+                <div class="authorization__main">
+                    <h2 class="authorization__title">
                         Вход в личный кабинет
                     </h2>
-                    <div class="registration__text">
-                        <p class="registration__text-content">
+                    <div class="authorization__text">
+                        <p class="authorization__text-content">
                             Нет учетной записи?
                         </p>
-                        <a class="registration__text-content registration__link" href="{% url 'registration' %}">
+                        <a class="authorization__text-content authorization__link" href="{% url 'registration' %}">
                             Зарегистрироваться
                         </a>
                     </div>
                 </div>
-                <form action="{% url 'login' %}" method="post" class="registration__form">
+                <form action="{% url 'login' %}" method="post" class="authorization__form">
                     {% csrf_token %}
-                    <div class="registration__form-group">
+                    <div class="authorization__form-group">
                         <label class="form-group__label" for="email">
                             E-mail
                             <span class="error_star">
@@ -65,7 +65,7 @@
                         </label>
                         <input class="from-group__input" type="email" id="email" name="email" placeholder="Введите E-mail">
                     </div>
-                    <div class="registration__form-group">
+                    <div class="authorization__form-group">
                         <label class="form-group__label" for="password">
                             Пароль
                             <span class="error_star">
@@ -74,7 +74,7 @@
                         </label>
                         <input class="from-group__input" type="password" id="password" name="password" placeholder="Введите пароль">
                     </div>
-                    <div class="registration__form-checkbox">
+                    <div class="authorization__form-checkbox">
                         <div class="form-checkbox">
                             <input class="form-checkbox__input" type="checkbox" id="checkbox" name="checkbox">
                             <label class="form-checkbox__label" for="checkbox">
@@ -85,10 +85,9 @@
                             Забыли пароль?
                         </a>
                     </div>
-                    <div class="registration__form-button">
+                    <div class="authorization__form-button">
                         <a href="{% url "informations" %}">
                             <input class="form-button__btn" type="submit" value="Войти">
-                            {% comment %} <button class="form-button__btn" name="action">Войти</button> {% endcomment %}
                         </a>
                     </div>
                 </form>

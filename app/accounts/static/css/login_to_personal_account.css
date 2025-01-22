@@ -72,20 +72,20 @@ body {
     margin: 96px 0;
 }
 
-.regisration {
+.authorization {
     width: 388px;
     height: 527px;
     margin: auto;
 }
 
-.registration__main {
+.authorization__main {
     width: 327px;
     height: 116px;
     margin: auto;
     margin-bottom: 31px;
 }
 
-.registration__title {
+.authorization__title {
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 34px;
@@ -94,13 +94,13 @@ body {
     color: var(--black);
 }
 
-.registration__text {
+.authorization__text {
     display: flex;
     justify-content: center;
     gap: 5px;
 }
 
-.registration__text-content {
+.authorization__text-content {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
@@ -109,12 +109,12 @@ body {
     color: var(--gray-gray-5);
 }
 
-.registration__link {
+.authorization__link {
     text-decoration: none;
     color: var(--blue-blue-9);
 }
 
-.registration__form {
+.authorization__form {
     border: 1px solid var(--gray-gray-3);
     border-radius: 8px;
     padding: 31px;
@@ -128,7 +128,7 @@ body {
     gap: 16px;
 }
 
-.registration__form-group {
+.authorization__form-group {
     display: flex;
     flex-direction: column;
 }
@@ -171,7 +171,7 @@ body {
     display: none;
 }
 
-.registration__form-checkbox {
+.authorization__form-checkbox {
     width: 326px;
     height: 23px;
     display: flex;
