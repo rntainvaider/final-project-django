@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site_title }}</title>
-    <link rel="stylesheet" href="{% static "css/information.css" %}">
-    <script src="{% static "js/information.js" %}" defer></script>
+    <link rel="stylesheet" href="{% static "css/informations.css" %}">
+    <script src="{% static "js/informations.js" %}" defer></script>
 </head>
 <body>
     <header class="header">
@@ -60,22 +60,22 @@
                                 <li class="sidebar--left__items">
                                     <div class="sidebar--left__div">
                                         <img class="sidebar--left__images" src="{% static "images/informations.svg" %}" alt="Информация">
-                                        <a class="sidebar--left__link" href="{% url "information" %}">
+                                        <a class="sidebar--left__link" href="{% url "informations" %}">
                                             Информация
                                         </a>
                                     </div>
                                 </li>
                                 <li class="sidebar--left__items">
                                     <div class="sidebar--left__div">
-                                        <img class="sidebar--left__images" src="{% static "images/bank-book.svg" %}" alt="Прибор учёта">
-                                        <a class="sidebar--left__link" href="#">
+                                        <img class="sidebar--left__images" src="{% static "images/metering-devices.svg" %}" alt="Прибор учёта">
+                                        <a class="sidebar--left__link" href="{% url "metering_devices" %}">
                                             Приборы учёта
                                         </a>
                                     </div>
                                 </li>
                                 <li class="sidebar--left__items">
                                     <div class="sidebar--left__div">
-                                        <img class="sidebar--left__images" src="assets/img/history-of-charges-and-payments.svg" alt="История начислений и оплат">
+                                        <img class="sidebar--left__images" src="{% static "images/history-of-charges-and-payments.svg" %}" alt="История начислений и оплат">
                                         <a class="sidebar--left__link" href="#">
                                             История начислений и оплат
                                             <img class="sidebar--left__down-arrow" src="{% static "images/down-arrow.svg" %}" alt="Стрелочка вниз">
@@ -129,7 +129,7 @@
                                 </li>
                                 <li class="sidebar--left__items">
                                     <div class="sidebar--left__div">
-                                        <img class="sidebar--left__images" src="images/сonsumer-personal-accounts.svg" alt="Лицевые счета потребителя">
+                                        <img class="sidebar--left__images" src="{% static "images/сonsumer-personal-accounts.svg" %}" alt="Лицевые счета потребителя">
                                         <a class="sidebar--left__link" href="#">
                                             Лицевые счета потребителя
                                         </a>

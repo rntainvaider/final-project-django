@@ -12,7 +12,7 @@ def login_to_personal_account(request):
 
         custom_user = CustomUsers.objects.filter(email=email, password=password).first()
         if custom_user:
-            return redirect("information")
+            return redirect("informations")
         else:
             context = {
                 "site_title": "Авторизация",
@@ -47,3 +47,15 @@ def registration(request):
     context = {"site_title": "Регистрация"}
 
     return render(request, "registration.html", context=context)
+
+
+def informations(request):
+    context = {"site_title": "Информация"}
+
+    return render(request, "informations.html", context=context)
+
+
+def metering_devices(request):
+    context = {"site_title": "Приборы учета"}
+
+    return render(request, "metering_devices.html", context=context)

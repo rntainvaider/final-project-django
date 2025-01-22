@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site_title }}</title>
     <link rel="stylesheet" href="{% static "css/login_to_personal_account.css" %}">
-    <script src="{% static "js/personal_account.js" %}" defer></script>
+    <script src="{% static "js/login_to_personal_account.js" %}" defer></script>
 </head>
 <body>
     <header class="header">
@@ -86,7 +86,7 @@
                         </a>
                     </div>
                     <div class="registration__form-button">
-                        <a href="{% url "information" %}">
+                        <a href="{% url "informations" %}">
                             <input class="form-button__btn" type="submit" value="Войти">
                             {% comment %} <button class="form-button__btn" name="action">Войти</button> {% endcomment %}
                         </a>
