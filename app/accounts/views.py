@@ -99,3 +99,9 @@ def consumer_personal_accounts(request):
     context = {"site_title": "Лицевые счета потребителя"}
 
     return render(request, "consumer_personal_accounts.html", context=context)
+
+
+def current_period(request):
+    context = {"site_title": "Лицевые счета потребителя"}
+
+    return render(request, "current_period.html", context=context)

@@ -22,4 +22,5 @@ urlpatterns = [
         views.consumer_personal_accounts,
         name="consumer_personal_accounts",
     ),
+    path("current_period/", views.current_period, name="current_period"),
 ]

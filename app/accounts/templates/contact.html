@@ -78,6 +78,11 @@
                             </a>
                         </li>
                         <li class="main--sidebar-nav-list__items">
+                            <a href="{% url "current_period" %}" class="main--sidebar-nav-list-items__link">
+                                Начислено за текущий период
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
                             <img src="{% static "images/sidebar/payment.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
                             <a href="{% url "payment" %}" class="main--sidebar-nav-list-items__link">
                                 Оплаты

@@ -3,6 +3,7 @@
     /* COLOR */
     --white: #fff;
     --black: #000;
+    --gray-gray-3: #dee2e6;
     --gray-gray-4: #ced4da;
     --gray-gray-6: #868e96;
 	--gray-gray-9: #212529;
@@ -141,7 +142,6 @@ li {
 /* MAIN SIDEBAR */
 
 .main--sidebar {
-    /* background-color: red; */
     border-right: 1px solid var(--gray-gray-4);
     padding: 32px 0px;
     width: 299px;
@@ -149,7 +149,6 @@ li {
 }
 
 .main--sidebar__nav {
-    /* background-color: bisque; */
     height: 646px;
 }
 
