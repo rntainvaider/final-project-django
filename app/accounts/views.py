@@ -10,7 +10,7 @@ def login_to_personal_account(request):
 
         custom_user = CustomUsers.objects.filter(email=email, password=password).first()
         if custom_user:
-            return redirect("informations")
+            return redirect("information")
         else:
             context = {
                 "site_title": "Авторизация",
@@ -40,17 +40,17 @@ def registration(request):
             create_custom_users.password = password
             create_custom_users.save()
 
-            return redirect("informations")
+            return redirect("information")
 
     context = {"site_title": "Регистрация"}
 
     return render(request, "registrations.html", context=context)
 
 
-def informations(request):
+def information(request):
     context = {"site_title": "Информация"}
 
-    return render(request, "informations.html", context=context)
+    return render(request, "information.html", context=context)
 
 
 def metering_devices(request):
@@ -59,7 +59,43 @@ def metering_devices(request):
     return render(request, "metering_devices.html", context=context)
 
 
-def contacts(request):
+def contact(request):
     context = {"site_title": "Контакты"}
 
-    return render(request, "contacts.html", context=context)
+    return render(request, "contact.html", context=context)
+
+
+def accrual_and_payment_history(request):
+    context = {"site_title": "Начислено за текущий период"}
+
+    return render(request, "accrual_and_payment_history.html", context=context)
+
+
+def message(request):
+    context = {"site_title": "Начисления"}
+
+    return render(request, "message.html", context=context)
+
+
+def payment(request):
+    context = {"site_title": "Платежи"}
+
+    return render(request, "payment.html", context=context)
+
+
+def receipts(request):
+    context = {"site_title": "Квитанции"}
+
+    return render(request, "receipts.html", context=context)
+
+
+def notification(request):
+    context = {"site_title": "Уведомления"}
+
+    return render(request, "notification.html", context=context)
+
+
+def consumer_personal_accounts(request):
+    context = {"site_title": "Лицевые счета потребителя"}
+
+    return render(request, "consumer_personal_accounts.html", context=context)

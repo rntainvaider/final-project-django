@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_title }}</title>
+    <link rel="stylesheet" href="{% static "css/contact.css" %}">
+    <script src="{% static "js/contact.js" %}" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header--main">
+                <div class="header--left">
+                    <div class="header--left-logo">
+                        <img src="{% static "images/header/logo.svg" %}" alt="Логотип" class="header--left-logo__images">
+                        <p class="header--left-logo__title">
+                            Личный кабинет потребителя
+                        </p>
+                    </div>
+                    <div class="header--left-data">
+                        <form action="" class="header--left-logo-data__form">
+                            <select name="" id="" class="header--left-logo-data__form-select">
+                                <option value="" class="header--left-logo-data__form-select-option">
+                                    л/с 46546141645654654
+                                </option>
+                                <option value="" class="header--left-logo-data__form-select-option">
+                                    л/с 46546141645654654
+                                </option>
+                                <option value="" class="header--left-logo-data__form-select-option">
+                                    л/с 46546141645654654
+                                </option>
+                            </select>
+                        </form>
+                        <div class="header--left-logo-data__payments">
+                            <p class="header--left-logo-data__payments-money">
+                                13 456,00 ₽
+                            </p>
+                            <div class="header--left-logo-data__payments-date">
+                                <p class="header--left-logo-data__payments-date--text">
+                                    к оплате на 01.01.2023
+                                </p>
+                                <img src="{% static "images/header/rub.svg" %}" alt="Рубли" class="header--left-logo-data__payments-date--images">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header--right">
+                    <img src="{% static "images/header/help.svg" %}" alt="Помощь" class="header--right__images">
+                    <img src="{% static "images/header/alert.svg" %}" alt="Оповещения" class="header--right__images">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main--sidebar">
+                <nav class="main--sidebar__nav">
+                    <ul class="main--sidebar-nav__list">
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/information.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "information" %}" class="main--sidebar-nav-list-items__link">
+                                Информация
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/metering_devices.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "metering_devices" %}" class="main--sidebar-nav-list-items__link">
+                                Приборы учёта
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/metering_devices.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "accrual_and_payment_history" %}" class="main--sidebar-nav-list-items__link">
+                                История начислений и оплат
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/payment.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "payment" %}" class="main--sidebar-nav-list-items__link">
+                                Оплаты
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/receipts.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "receipts" %}" class="main--sidebar-nav-list-items__link">
+                                Квитанцнии
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/message.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "message" %}" class="main--sidebar-nav-list-items__link">
+                                Обращения
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/notification.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "notification" %}" class="main--sidebar-nav-list-items__link">
+                                Уведомления
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/consumer_personal_accounts.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "consumer_personal_accounts" %}" class="main--sidebar-nav-list-items__link">
+                                Лицевые счета потребителя
+                            </a>
+                        </li>
+                        <li class="main--sidebar-nav-list__items">
+                            <img src="{% static "images/sidebar/contact.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
+                            <a href="{% url "contact" %}" class="main--sidebar-nav-list-items__link">
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

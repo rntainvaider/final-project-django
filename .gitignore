@@ -3,3 +3,4 @@ __pycache__/
 filestructure.txt
 .env
 .DS_Store
+.pytest_cache/

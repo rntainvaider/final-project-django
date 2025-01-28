@@ -1,0 +1,186 @@
+/* SETTINGS BODY */
+:root {
+    /* COLOR */
+    --white: #fff;
+    --black: #000;
+    --gray-gray-4: #ced4da;
+    --gray-gray-6: #868e96;
+	--gray-gray-9: #212529;
+    --blue-blue-0: #e7f5ff;
+    --blue-blue-5: #339af0;
+    --blue-blue-9: #1864ab;
+    --red-red-9: #c92a2a;
+
+    /* font-family */
+    --font-family: "Open Sans", sans-serif;
+    --second-family: "Roboto", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--white);
+    font-family: var(--font-family);
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* HEADER */
+
+.header--main {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-gray-4);
+    padding: 6px 16px;
+}
+
+.header--left {
+    display: flex;
+    gap: 32px;
+}
+
+.header--left-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 243px;
+}
+
+.header--left-logo__images {
+}
+
+.header--left-logo__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 155%;
+    color: var(--black);
+}
+
+.header--left-data {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: 63px;
+}
+
+.header--left-logo-data__form {
+}
+
+.header--left-logo-data__form-select {
+    border: 1px solid var(--blue-blue-5);
+    border-radius: 2px;
+    padding: 6px 0px;
+    width: 183px;
+}
+
+.header--left-logo-data__form-select-option {
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 155%;
+    color: var(--gray-gray-9);
+}
+
+.header--left-logo-data__payments {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--gray-gray-4);
+    border-radius: 2px;
+    padding: 8px;
+    width: 231px;
+}
+
+.header--left-logo-data__payments-money {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 155%;
+    color: var(--black);
+}
+
+.header--left-logo-data__payments-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header--left-logo-data__payments-date--text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 155%;
+    color: var(--gray-gray-6);
+}
+
+.header--left-logo-data__payments-date--images {
+}
+
+.header--right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header--right__images {
+    width: 24px;
+    height: 24px;
+}
+
+/* MAIN SIDEBAR */
+
+.main--sidebar {
+    /* background-color: red; */
+    border-right: 1px solid var(--gray-gray-4);
+    padding: 32px 0px;
+    width: 299px;
+    height: 939px;
+}
+
+.main--sidebar__nav {
+    /* background-color: bisque; */
+    height: 646px;
+}
+
+.main--sidebar-nav-list__items {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    height: 50px;
+}
+
+.main--sidebar-nav-list-items__images {
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    padding: 6px;
+    width: 30px;
+    height: 30px;
+    background: var(--blue-blue-0);
+}
+
+.main--sidebar-nav-list-items__link {
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 115%;
+    color: var(--black);
+    padding: 6px 0px;
+    border: 1px solid var(--white);
+    transition: 0.4s ease;
+}
+
+.main--sidebar-nav-list-items__link:hover {
+    border: 1px solid var(--blue-blue-9);
+}
