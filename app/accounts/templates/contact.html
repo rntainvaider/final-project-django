@@ -12,24 +12,24 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="header--main">
+            <div class="header__content">
                 <div class="header--left">
-                    <div class="header--left-logo">
+                    <a href="{% url "information" %}" class="header--left-logo flex">
                         <img src="{% static "images/header/logo.svg" %}" alt="Логотип" class="header--left-logo__images">
                         <p class="header--left-logo__title">
                             Личный кабинет потребителя
                         </p>
-                    </div>
-                    <div class="header--left-data">
-                        <form action="" class="header--left-logo-data__form">
-                            <select name="" id="" class="header--left-logo-data__form-select">
-                                <option value="" class="header--left-logo-data__form-select-option">
+                    </a>
+                    <div class="header--left-data flex">
+                        <form action="" class="header__form">
+                            <select name="" id="" class="header__form-select header--left-logo-data__form-select">
+                                <option value="46546141645654654" class="header--left-logo-data__form-select-option">
                                     л/с 46546141645654654
                                 </option>
-                                <option value="" class="header--left-logo-data__form-select-option">
+                                <option value="46546141645654654" class="header--left-logo-data__form-select-option">
                                     л/с 46546141645654654
                                 </option>
-                                <option value="" class="header--left-logo-data__form-select-option">
+                                <option value="46546141645654654" class="header--left-logo-data__form-select-option">
                                     л/с 46546141645654654
                                 </option>
                             </select>
@@ -47,15 +47,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="header--right">
+                <div class="header--right flex">
                     <img src="{% static "images/header/help.svg" %}" alt="Помощь" class="header--right__images">
                     <img src="{% static "images/header/alert.svg" %}" alt="Оповещения" class="header--right__images">
                 </div>
             </div>
         </div>
     </header>
-    <main class="main">
-        <div class="container">
+    <div class="container container-flex">
+
+    <aside class="aside">
             <div class="main--sidebar">
                 <nav class="main--sidebar__nav">
                     <ul class="main--sidebar-nav__list">
@@ -73,27 +74,44 @@
                         </li>
                         <li class="main--sidebar-nav-list__items">
                             <img src="{% static "images/sidebar/metering_devices.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
-                            <a href="{% url "accrual_and_payment_history" %}" class="main--sidebar-nav-list-items__link">
+                            <select href="{% url "accrual_and_payment_history" %}" class="main--sidebar-nav-list-items__link">
                                 История начислений и оплат
-                            </a>
+                                <option value="">
+                                    <a href="{% url "current_period" %}" class="main--sidebar-nav-list-items__link">
+                                        Начислено за текущий период
+                                    </a>
+                                </option>
+                                <option value="">
+                                    <a href="{% url "assessment" %}" class="main--sidebar-nav-list-items__link">
+                                        Начисления
+                                    </a>
+                                </option>
+                                <option value="">
+                                    <a href="{% url "paying" %}" class="main--sidebar-nav-list-items__link">
+                                        Платежи
+                                    </a>
+                                </option>
+                            </select>
                         </li>
-                        <div class="main--sidebar-nav-list__items-hiding">
-                            <li class="main--sidebar-nav-list__items">
-                                <a href="{% url "current_period" %}" class="main--sidebar-nav-list-items__link">
-                                    Начислено за текущий период
-                                </a>
-                            </li>
-                            <li class="main--sidebar-nav-list__items">
-                                <a href="{% url "assessment" %}" class="main--sidebar-nav-list-items__link">
-                                    Начисления
-                                </a>
-                            </li>
-                            <li class="main--sidebar-nav-list__items">
-                                <a href="{% url "paying" %}" class="main--sidebar-nav-list-items__link">
-                                    Платежи
-                                </a>
-                            </li>
-                        </div>
+                        {% comment %} <li class="main--sidebar-nav-list__items-hiding">
+                            <ul>
+                                <li class="main--sidebar-nav-list__items">
+                                    <a href="{% url "current_period" %}" class="main--sidebar-nav-list-items__link">
+                                        Начислено за текущий период
+                                    </a>
+                                </li>
+                                <li class="main--sidebar-nav-list__items">
+                                    <a href="{% url "assessment" %}" class="main--sidebar-nav-list-items__link">
+                                        Начисления
+                                    </a>
+                                </li>
+                                <li class="main--sidebar-nav-list__items">
+                                    <a href="{% url "paying" %}" class="main--sidebar-nav-list-items__link">
+                                        Платежи
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> {% endcomment %}
                         <li class="main--sidebar-nav-list__items">
                             <img src="{% static "images/sidebar/payment.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
                             <a href="{% url "payment" %}" class="main--sidebar-nav-list-items__link">
@@ -135,25 +153,40 @@
                 <div class="main--sidebar__user-panel">
                     <div class="main--sidebar__user-panel-info">
                         <div class="main--sidebar__user-panel-info__data">
-                            <p class="main--sidebar__user-panel-info__fullname">Иван Иванов Иванович</p>
+                            <select name="" id="">
+                                <option value="">
+                                        <p class="main--sidebar__user-panel-info__fullname">Иван Иванов Иванович</p>
                             <p class="main--sidebar__user-panel-info__email">mail@mail.ru</p>
+                                </option>
+                                <option value="">
+                                    <img src="{% static "images/sidebar/user-panel/settings.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
+                                    <a href="{% url "settings" %}" class="main--sidebar__user-panel-nav__link">Настройки</a>
+                                </option>
+
+                                <option value="">
+                                    <img src="{% static "images/sidebar/user-panel/exit.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
+                                    <a href="{% url "login" %}" class="main--sidebar__user-panel-nav__link">Выйти</a>
+                                </option>
+                            </select>
+
                         </div>
                     </div>
                     <nav class="main--sidebar__user-panel__nav">
                         <ul class="main--sidebar__user-panel-nav__list">
                             <li class="main--sidebar__user-panel-nav__items">
-                                <img src="{% static "images/sidebar/user-panel/settings.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
-                                <a href="{% url "settings" %}" class="main--sidebar__user-panel-nav__link">Настройки</a>
+
                             </li>
                             <li class="main--sidebar__user-panel-nav__items">
-                                <img src="{% static "images/sidebar/user-panel/exit.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
-                                <a href="{% url "login" %}" class="main--sidebar__user-panel-nav__link">Выйти</a>
+
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
-        </div>
-    </main>
+        </aside>
+        <main>
+            <h1>Main page</h1>
+        </main>
+    </div>
 </body>
 </html>
