@@ -105,3 +105,21 @@ def current_period(request):
     context = {"site_title": "Лицевые счета потребителя"}
 
     return render(request, "current_period.html", context=context)
+
+
+def assessment(request):
+    context = {"site_title": "Начисления"}
+
+    return render(request, "assessment.html", context=context)
+
+
+def paying(request):
+    context = {"site_title": "Платежи"}
+
+    return render(request, "paying.html", context=context)
+
+
+def settings(request):
+    context = {"site_title": "Настройки"}
+
+    return render(request, "settings.html", context=context)

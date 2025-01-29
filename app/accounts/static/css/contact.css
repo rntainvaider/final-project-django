@@ -5,6 +5,7 @@
     --black: #000;
     --gray-gray-3: #dee2e6;
     --gray-gray-4: #ced4da;
+    --gray-gray-5: #adb5bd;
     --gray-gray-6: #868e96;
 	--gray-gray-9: #212529;
     --blue-blue-0: #e7f5ff;
@@ -62,9 +63,6 @@ li {
     width: 243px;
 }
 
-.header--left-logo__images {
-}
-
 .header--left-logo__title {
     font-weight: 700;
     font-size: 16px;
@@ -77,9 +75,6 @@ li {
     gap: 16px;
     align-items: center;
     height: 63px;
-}
-
-.header--left-logo-data__form {
 }
 
 .header--left-logo-data__form-select {
@@ -125,9 +120,6 @@ li {
     color: var(--gray-gray-6);
 }
 
-.header--left-logo-data__payments-date--images {
-}
-
 .header--right {
     display: flex;
     align-items: center;
@@ -160,6 +152,12 @@ li {
     height: 50px;
 }
 
+.main--sidebar-nav-list__items-hiding {
+    border-left: 1px solid var(--gray-gray-3);
+    margin-left: 30px;
+    padding-left: 15px;
+}
+
 .main--sidebar-nav-list-items__images {
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 4px;
@@ -181,5 +179,60 @@ li {
 }
 
 .main--sidebar-nav-list-items__link:hover {
+    border: 1px solid var(--blue-blue-9);
+}
+
+.main--sidebar__user-panel {
+    border-top: 1px solid var(--gray-gray-4);
+    width: 267px;
+    height: 134px;
+    margin: 0 auto;
+}
+.main--sidebar__user-panel-info {
+    padding: 9.5px 0;
+}
+.main--sidebar__user-panel-info__data {
+}
+.main--sidebar__user-panel-info__fullname {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 155%;
+    color: var(--black);
+}
+.main--sidebar__user-panel-info__email {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 155%;
+    color: var(--gray-gray-5);
+}
+.main--sidebar__user-panel__nav {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 10px 15px -5px rgba(0, 0, 0, 0.05), 0 7px 7px -5px rgba(0, 0, 0, 0.04);
+}
+.main--sidebar__user-panel-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.main--sidebar__user-panel-nav__items {
+    border-radius: 4px;
+    padding: 7px 12px;
+}
+.main--sidebar__user-panel-nav__images{
+
+}
+.main--sidebar__user-panel-nav__link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 155%;
+    color: var(--black);
+    border: 1px solid var(--white);
+    padding: 1px 0px;
+    transition: 0.4s ease;
+}
+
+.main--sidebar__user-panel-nav__link:hover {
     border: 1px solid var(--blue-blue-9);
 }

@@ -23,4 +23,7 @@ urlpatterns = [
         name="consumer_personal_accounts",
     ),
     path("current_period/", views.current_period, name="current_period"),
+    path("assessment/", views.assessment, name="assessment"),
+    path("paying/", views.paying, name="paying"),
+    path("settings/", views.settings, name="settings"),
 ]

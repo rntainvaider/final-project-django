@@ -77,11 +77,23 @@
                                 История начислений и оплат
                             </a>
                         </li>
-                        <li class="main--sidebar-nav-list__items">
-                            <a href="{% url "current_period" %}" class="main--sidebar-nav-list-items__link">
-                                Начислено за текущий период
-                            </a>
-                        </li>
+                        <div class="main--sidebar-nav-list__items-hiding">
+                            <li class="main--sidebar-nav-list__items">
+                                <a href="{% url "current_period" %}" class="main--sidebar-nav-list-items__link">
+                                    Начислено за текущий период
+                                </a>
+                            </li>
+                            <li class="main--sidebar-nav-list__items">
+                                <a href="{% url "assessment" %}" class="main--sidebar-nav-list-items__link">
+                                    Начисления
+                                </a>
+                            </li>
+                            <li class="main--sidebar-nav-list__items">
+                                <a href="{% url "paying" %}" class="main--sidebar-nav-list-items__link">
+                                    Платежи
+                                </a>
+                            </li>
+                        </div>
                         <li class="main--sidebar-nav-list__items">
                             <img src="{% static "images/sidebar/payment.svg" %}" alt="" class="main--sidebar-nav-list-items__images">
                             <a href="{% url "payment" %}" class="main--sidebar-nav-list-items__link">
@@ -120,6 +132,26 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="main--sidebar__user-panel">
+                    <div class="main--sidebar__user-panel-info">
+                        <div class="main--sidebar__user-panel-info__data">
+                            <p class="main--sidebar__user-panel-info__fullname">Иван Иванов Иванович</p>
+                            <p class="main--sidebar__user-panel-info__email">mail@mail.ru</p>
+                        </div>
+                    </div>
+                    <nav class="main--sidebar__user-panel__nav">
+                        <ul class="main--sidebar__user-panel-nav__list">
+                            <li class="main--sidebar__user-panel-nav__items">
+                                <img src="{% static "images/sidebar/user-panel/settings.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
+                                <a href="{% url "settings" %}" class="main--sidebar__user-panel-nav__link">Настройки</a>
+                            </li>
+                            <li class="main--sidebar__user-panel-nav__items">
+                                <img src="{% static "images/sidebar/user-panel/exit.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
+                                <a href="{% url "login" %}" class="main--sidebar__user-panel-nav__link">Выйти</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </main>
