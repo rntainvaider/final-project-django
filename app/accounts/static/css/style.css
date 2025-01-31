@@ -1,30 +1,5 @@
 @import "variables.css";
 
-
-/* SETTINGS BODY */
-/* :root {
-    /* COLOR */
-    --white: #fff;
-    --black: #000;
-    --gray-gray-1: #f1f3f5;
-	--gray-gray-2: #e9ecef;
-    --gray-gray-3: #dee2e6;
-    --gray-gray-4: #ced4da;
-    --gray-gray-5: #adb5bd;
-    --gray-gray-6: #868e96;
-    --gray-gray-9: #212529;
-    --blue-blue-0: #e7f5ff;
-    --blue-blue-5: #339af0;
-    --blue-blue-9: #1864ab;
-    --red-red-9: #c92a2a;
-
-    /* font-family */
-    --font-family: "Open Sans", sans-serif;
-    --second-family: "Roboto", sans-serif;
-} */
-
-
-
 * {
     margin: 0;
     padding: 0;

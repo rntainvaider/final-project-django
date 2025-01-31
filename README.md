@@ -11,4 +11,5 @@
    - `PASSWORD=""`
    - `HOST=""`
    - `PORT=""`
+   - `API_YANDEX_MAPS`
 4. Запустить проект - `python manage.py runserver`
