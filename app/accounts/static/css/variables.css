@@ -3,7 +3,7 @@
     --white: #fff;
     --black: #000;
     --gray-gray-1: #f1f3f5;
-	--gray-gray-2: #e9ecef;
+    --gray-gray-2: #e9ecef;
     --gray-gray-3: #dee2e6;
     --gray-gray-4: #ced4da;
     --gray-gray-5: #adb5bd;
@@ -12,6 +12,8 @@
     --blue-blue-0: #e7f5ff;
     --blue-blue-5: #339af0;
     --blue-blue-9: #1864ab;
+    --red-red-6: #fa5252;
+    --red-red-7: #f03e3e;
     --red-red-9: #c92a2a;
 
     /* font-family */

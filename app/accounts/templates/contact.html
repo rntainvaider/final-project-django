@@ -5,11 +5,12 @@
     <link rel="stylesheet" href="{% static "css/contact.css" %}">
 {% endblock style %}
 {% block maps %}
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey={{ api_maps }}&lang=ru_RU" type="text/javascript"></script>
+    <script src="{% static "js/contact.js" %}" type="text/javascript"></script>
 {% endblock maps %}
 
 {% block main %}
-    <div class="main-content">
+    <div class="main-content flex-main">
         <p class="main-content__title">
             Контакты
         </p>
@@ -70,5 +71,10 @@
                 </tbody>
             </table>
         </div>
+        <body>
+            <div id="map">
+
+            </div>
+        </body>
     </div>
 {% endblock main %}

@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site_title }}</title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <script src="{% static "js/contact.js" %}" defer></script>
     {% block style %}{% endblock style %}
+    {% block maps %}{% endblock maps %}
 </head>
 <body>
     <header class="header">
@@ -165,7 +165,7 @@
                         <ul class="main--sidebar__user-panel-nav__list">
                             <li class="main--sidebar__user-panel-nav__items">
                                 <img src="{% static "images/sidebar/user-panel/settings.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
-                                <a href="{% url "settings" %}" class="main--sidebar__user-panel-nav__link">Настройки</a>
+                                <a href="{% url "settings_user" %}" class="main--sidebar__user-panel-nav__link">Настройки</a>
                             </li>
                             <li class="main--sidebar__user-panel-nav__items">
                                 <img src="{% static "images/sidebar/user-panel/exit.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">

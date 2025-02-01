@@ -1,6 +1,11 @@
+import os
+
 from django.shortcuts import redirect, render
+from dotenv import load_dotenv
 
 from accounts.models import CustomUsers
+
+_ = load_dotenv()
 
 
 def login_to_personal_account(request):
@@ -119,7 +124,14 @@ def paying(request):
     return render(request, "paying.html", context=context)
 
 
-def settings(request):
+def settings_user(request):
     context = {"site_title": "Настройки"}
 
-    return render(request, "settings.html", context=context)
+    return render(request, "settings_user.html", context=context)
+
+
+def get_api_map(request):
+    api_maps = os.getenv("API_YANDEX_MAPS")
+    context = {"api_maps": api_maps}
+
+    return render(request, "contact.html", context=context)

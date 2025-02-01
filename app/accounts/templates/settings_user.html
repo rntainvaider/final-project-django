@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/settings_user.css" %}">
+{% endblock style %}
+
+{% block main %}
+    <div class="main-content main__flex">
+        <p class="main-content__title">
+            Настройки
+        </p>
+        <div class="main-content__wrapper">
+            <p class="main-content__subtitle">
+                Сведения о потребителе
+            </p>
+            <form action="" class="main__form main__flex">
+                <div class="main-form__block">
+                    <div class="main-form__data">
+                        <label for="full_name" class="main-form__label">
+                            ФИО
+                            <span class="main_error__star">
+                                *
+                            </span>
+                        </label>
+                        <input type="text" id="full_name" name="full_name" class="main-form__input">
+                    </div>
+                    <div class="main-form__data">
+                        <label for="email" class="main-form__label">
+                            E-mail
+                            <span class="main_error__star">
+                                *
+                            </span>
+                        </label>
+                        <input type="email" id="email" name="email" class="main-form__input">
+                    </div>
+                </div>
+                <div class="main-form__block">
+                    <div class="main-form__data">
+                        <label for="phone_number" class="main-form__label">
+                            Номер телефона
+                            <span class="main_error__star">
+                                *
+                            </span>
+                        </label>
+                        <input type="text" id="phone_number" name="phone_number" class="main-form__input">
+                    </div>
+                </div>
+                <div class="main-form__block">
+                    <div class="main-form__data">
+                        <label for="password" class="main-form__label">
+                            Пароль
+                            <span class="main_error__star">
+                                *
+                            </span>
+                        </label>
+                        <input type="password" id="password" name="password" class="main-form__input">
+                    </div>
+                    <div class="main-form__data">
+                        <label for="repeat_password" class="main-form__label">
+                            Повторите пароль
+                            <span class="main_error__star">
+                                *
+                            </span>
+                        </label>
+                        <input type="password" id="repeat_password" name="repeat_password" class="main-form__input">
+                    </div>
+                </div>
+                <div class="main-form__block-two">
+                    <div class="main-form__block-two__">
+                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <p class="main-form__block-two__text">Содержит только латинские буквы</p>
+                    </div>
+                    <div class="main-form__block-two__">
+                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <p class="main-form__block-two__text">Содержит минимум 8 символов</p>
+                    </div>
+                    <div class="main-form__block-two__">
+                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <p class="main-form__block-two__text">Включает цифры</p>
+                    </div>
+                    <div class="main-form__block-two__">
+                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <p class="main-form__block-two__text">Включает строчные буквы</p>
+                    </div>
+                    <div class="main-form__block-two__">
+                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <p class="main-form__block-two__text">Включает заглавные буквы</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock main %}
