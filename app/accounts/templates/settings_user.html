@@ -4,6 +4,9 @@
 {% block style %}
     <link rel="stylesheet" href="{% static "css/settings_user.css" %}">
 {% endblock style %}
+{% block script %}
+    <script src="{% static "js/settings_user.js" %}" defer></script>
+{% endblock script %}
 
 {% block main %}
     <div class="main-content main__flex">
@@ -14,7 +17,8 @@
             <p class="main-content__subtitle">
                 Сведения о потребителе
             </p>
-            <form action="" class="main__form main__flex">
+            <form action="{% url "settings_user" %}" method="POST" class="main__form main__flex">
+                {% csrf_token %}
                 <div class="main-form__block">
                     <div class="main-form__data">
                         <label for="full_name" class="main-form__label">
@@ -54,7 +58,7 @@
                                 *
                             </span>
                         </label>
-                        <input type="password" id="password" name="password" class="main-form__input">
+                        <input type="password" id="password" name="password" class="main-form__input" minlength="8">
                     </div>
                     <div class="main-form__data">
                         <label for="repeat_password" class="main-form__label">
@@ -63,30 +67,35 @@
                                 *
                             </span>
                         </label>
-                        <input type="password" id="repeat_password" name="repeat_password" class="main-form__input">
+                        <input type="password" id="repeat_password" name="repeat_password" class="main-form__input" minlength="8">
                     </div>
                 </div>
                 <div class="main-form__block-two">
                     <div class="main-form__block-two__">
-                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <img class="main-form__block-two__img" src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
                         <p class="main-form__block-two__text">Содержит только латинские буквы</p>
                     </div>
                     <div class="main-form__block-two__">
-                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <img class="main-form__block-two__img" src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
                         <p class="main-form__block-two__text">Содержит минимум 8 символов</p>
                     </div>
                     <div class="main-form__block-two__">
-                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <img class="main-form__block-two__img" src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
                         <p class="main-form__block-two__text">Включает цифры</p>
                     </div>
                     <div class="main-form__block-two__">
-                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <img class="main-form__block-two__img" src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
                         <p class="main-form__block-two__text">Включает строчные буквы</p>
                     </div>
                     <div class="main-form__block-two__">
-                        <img src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
+                        <img class="main-form__block-two__img" src="{% static "images/settings_user/cross.svg" %}" alt="Крестик">
                         <p class="main-form__block-two__text">Включает заглавные буквы</p>
                     </div>
+                </div>
+                <div class="main-form__button">
+                    <a href="{% url "settings_user" %}">
+                        <input class="main-form__button-save" type="submit" value="Сохранить">
+                    </a>
                 </div>
             </form>
         </div>

@@ -8,6 +8,7 @@
     <title>{{ site_title }}</title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     {% block style %}{% endblock style %}
+    {% block script %}{% endblock script %}
     {% block maps %}{% endblock maps %}
 </head>
 <body>
@@ -157,8 +158,8 @@
                 <div class="main--sidebar__user-panel">
                     <div class="main--sidebar__user-panel-info">
                         <div class="main--sidebar__user-panel-info__data">
-                            <p class="main--sidebar__user-panel-info__fullname">Иван Иванов Иванович</p>
-                            <p class="main--sidebar__user-panel-info__email">mail@mail.ru</p>
+                            <p class="main--sidebar__user-panel-info__fullname">{{ full_name }}</p>
+                            <p class="main--sidebar__user-panel-info__email">{{ email }}</p>
                         </div>
                     </div>
                     <nav class="main--sidebar__user-panel__nav">

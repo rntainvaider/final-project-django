@@ -1,5 +1,66 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/information.css" %}">
+{% endblock style %}
 
 {% block main %}
-    <p>aaa</p>
+    <div class="main-content">
+        <p class="main-content__title">
+            Информация
+        </p>
+        <div class="block">
+            <div class="main-content__left">
+                <p class="main-content-table__title">Сведения о потребителе</p>
+                <table class="main-content__table">
+                    <tbody>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                                ФИО
+                            </td>
+                            <td class="main-content-table__td-right">
+                                Иванов Иван Иванович
+                            </td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                                Номер текущего лицевого счёта
+                            </td>
+                            <td class="main-content-table__td-right">
+                                456461651654321365465
+                            </td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                                Адрес помещения
+                            </td>
+                            <td class="main-content-table__td-right">
+                                344082, Ростовская область, г. Ростов-на-Дону, ул. Козлова, д.32, кв.44
+                            </td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                                Площадь помещения
+                            </td>
+                            <td class="main-content-table__td-right">
+                                99 кв.м.
+                            </td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                                Количество проживающих человек
+                            </td>
+                            <td class="main-content-table__td-right">
+                                332
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="main-content__right">
+
+            </div>
+        </div>
+    </div>
 {% endblock main %}

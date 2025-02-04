@@ -20,7 +20,6 @@
     border-radius: 2px;
     padding: 12px 16px;
     width: 552px;
-    height: 523px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 10px 15px -5px rgba(0, 0, 0, 0.05), 0 7px 7px -5px rgba(0, 0, 0, 0.04);
 }
 
@@ -48,12 +47,17 @@
 .main-form__input {
     border: 1px solid var(--gray-gray-4);
     border-radius: 2px;
-    padding: 6px 0px;
+    padding-left: 12px;
     width: 252px;
     height: 36px;
+    font-family: var(--font-family);
+    font-size: 14px;
+    line-height: 155%;
+    color: var(--gray-gray-9);
 }
 
 .main_error__star {
+    display: none;
     font-weight: 600;
     font-size: 14px;
     line-height: 155%;
@@ -77,8 +81,24 @@
 }
 
 .main-form__block-two__text {
-    font-weight: 400;
     font-size: 14px;
     line-height: 155%;
     color: var(--red-red-6);
+}
+
+.main-form__button {
+    display: flex;
+    justify-content: right;
+}
+
+.main-form__button-save {
+    border: 2px solid var(--blue-blue-9);
+    border-radius: 2px;
+    padding: 10px 22px;
+    background: var(--blue-blue-9);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 155%;
+    color: var(--white);
+    cursor: pointer;
 }

@@ -11,6 +11,7 @@ let Password = document.getElementById("password");
 const EmailRegex = /^[A-z0-9.]+@[a-z]+\.[a-z]+$/; // Поле Email
 const PasswordRegex = /^[A-z0-9].{8,}$/; // Поле Password
 
+// Обработчик нажатия на кнопку
 FormButtonBtn.addEventListener("click", (event) => {
 
     // Скрываем поля ErrorStar
@@ -53,5 +54,4 @@ FormButtonBtn.addEventListener("click", (event) => {
     if (!hasError) {
         AuthorizationForm.submit();
     }
-
 })

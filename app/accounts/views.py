@@ -8,7 +8,7 @@ from accounts.models import CustomUsers
 _ = load_dotenv()
 
 
-def login_to_personal_account(request):
+def login(request):
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -21,12 +21,34 @@ def login_to_personal_account(request):
                 "site_title": "Авторизация",
             }
 
-            return render(request, "login_to_personal_account.html", context=context)
+            return render(request, "login.html", context=context)
 
     context = {
         "site_title": "Авторизация",
     }
-    return render(request, "login_to_personal_account.html", context=context)
+    return render(request, "login.html", context=context)
+
+
+def settings_user(request):
+    user = request.user
+
+    if request.method == "POST":
+        full_name = request.POST.get("full_name")
+        email = request.POST.get("email")
+        phone_number = request.POST.get("phone_number")
+        password = request.POST.get("password")
+        repeat_password = request.POST.get("repeat_password")
+
+        if full_name:
+            print(user)
+
+    context = {
+        "site_title": "Настройки",
+        "full_name": "ФИО",
+        "email": "email",
+    }
+
+    return render(request, "settings_user.html", context=context)
 
 
 def registration(request):
@@ -53,7 +75,11 @@ def registration(request):
 
 
 def information(request):
-    context = {"site_title": "Информация"}
+    context = {
+        "site_title": "Информация",
+        "full_name": "ФИО",
+        "email": "email",
+    }
 
     return render(request, "information.html", context=context)
 
@@ -122,12 +148,6 @@ def paying(request):
     context = {"site_title": "Платежи"}
 
     return render(request, "paying.html", context=context)
-
-
-def settings_user(request):
-    context = {"site_title": "Настройки"}
-
-    return render(request, "settings_user.html", context=context)
 
 
 def get_api_map(request):
