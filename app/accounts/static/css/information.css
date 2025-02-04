@@ -1,5 +1,8 @@
 .main-info {
     margin: 32px 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .main-info__content {
@@ -14,7 +17,7 @@
     color: var(--black);
 }
 
-.main-content__left {
+.main-info__left {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -31,9 +34,7 @@
     border-collapse: collapse;
 }
 
-.main-content-table__tr {
-
-}
+.main-content-table__tr {}
 
 .main-content-table__title {
     font-weight: 700;
@@ -42,7 +43,7 @@
     color: var(--blue-blue-9);
 }
 
-.main-content-table__td-left{
+.main-content-table__td-left {
     font-weight: 700;
     font-size: 14px;
     line-height: 155%;
@@ -53,7 +54,7 @@
     height: 30px;
 }
 
-.main-content-table__td-right{
+.main-content-table__td-right {
     font-weight: 400;
     font-size: 14px;
     line-height: 155%;
