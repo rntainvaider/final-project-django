@@ -1,5 +1,10 @@
-.main-content {
+.main-info {
     margin: 32px 0 0 32px;
+}
+
+.main-info__content {
+    display: flex;
+    gap: 24px;
 }
 
 .main-content__title {
@@ -9,10 +14,13 @@
     color: var(--black);
 }
 
-.block {
-
-}
 .main-content__left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.block__left {
     border: 1px solid var(--gray-gray-4);
     border-radius: 2px;
     padding: 12px 16px;
@@ -54,4 +62,22 @@
     padding: 4px 16px;
     width: 260px;
     height: 30px;
+}
+
+.block__left-wrap {
+    border: 1px solid var(--gray-gray-4);
+    border-radius: 2px;
+    padding: 8px 14px 8px 18px;
+    width: 520px;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block__left-link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 155%;
+    color: var(--blue-blue-9);
 }

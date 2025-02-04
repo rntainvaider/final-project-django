@@ -6,60 +6,158 @@
 {% endblock style %}
 
 {% block main %}
-    <div class="main-content">
-        <p class="main-content__title">
-            Информация
-        </p>
-        <div class="block">
-            <div class="main-content__left">
-                <p class="main-content-table__title">Сведения о потребителе</p>
-                <table class="main-content__table">
-                    <tbody>
+    <div class="main-info">
+        <p class="main-content__title">Информация</p>
+        <div class="main-info__content">
+            <div class="main-info__left">
+                <div class="block__left">
+                    <p class="main-content-table__title">Сведения о потребителе</p>
+                    <table class="main-content__table">
+                        <tbody>
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">
-                                ФИО
-                            </td>
-                            <td class="main-content-table__td-right">
-                                Иванов Иван Иванович
-                            </td>
+                            <td class="main-content-table__td-left">ФИО</td>
+                            <td class="main-content-table__td-right">Иванов Иван Иванович</td>
                         </tr>
                         <tr class="main-content-table__tr">
                             <td class="main-content-table__td-left">
-                                Номер текущего лицевого счёта
+                            Номер текущего лицевого счёта
                             </td>
+                            <td class="main-content-table__td-right">456461651654321365465</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Адрес помещения</td>
                             <td class="main-content-table__td-right">
-                                456461651654321365465
+                            344082, Ростовская область, г. Ростов-на-Дону, ул. Козлова, д.32,
+                            кв.44
                             </td>
                         </tr>
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">
-                                Адрес помещения
-                            </td>
-                            <td class="main-content-table__td-right">
-                                344082, Ростовская область, г. Ростов-на-Дону, ул. Козлова, д.32, кв.44
-                            </td>
+                            <td class="main-content-table__td-left">Площадь помещения</td>
+                            <td class="main-content-table__td-right">99 кв.м.</td>
                         </tr>
                         <tr class="main-content-table__tr">
                             <td class="main-content-table__td-left">
-                                Площадь помещения
+                            Количество проживающих человек
                             </td>
+                            <td class="main-content-table__td-right">332</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="block__left">
+                    <p class="main-content-table__title">Сведения об офисе обслуживания</p>
+                    <table class="main-content__table">
+                        <tbody>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Адрес</td>
                             <td class="main-content-table__td-right">
-                                99 кв.м.
+                            г. Батайск, ул. Козлова, д. 32
                             </td>
                         </tr>
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">
-                                Количество проживающих человек
-                            </td>
-                            <td class="main-content-table__td-right">
-                                332
-                            </td>
+                            <td class="main-content-table__td-left">Номера телефона</td>
+                            <td class="main-content-table__td-right">+7 (86352) 24-25-2</td>
                         </tr>
-                    </tbody>
-                </table>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">График работы</td>
+                            <td class="main-content-table__td-right"></td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Понедельник-пятница</td>
+                            <td class="main-content-table__td-right">09:00 – 21:00</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Суббота-воскресенье</td>
+                            <td class="main-content-table__td-right">выходной</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                            Адреса электронной почты
+                            </td>
+                            <td class="main-content-table__td-right">mail@mail.ru</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="block__left">
+                    <div class="block__left-wrap">
+                        <a class="block__left-link" href="">
+                            Оставить обращение
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="main-content__right">
-
+            <div class="main-content__left">
+                <div class="block__left">
+                    <p class="main-content-table__title">Сведения об офисе обслуживания</p>
+                    <table class="main-content__table">
+                        <tbody>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Адрес</td>
+                            <td class="main-content-table__td-right">
+                            г. Батайск, ул. Козлова, д. 32
+                            </td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Номера телефона</td>
+                            <td class="main-content-table__td-right">+7 (86352) 24-25-2</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">График работы</td>
+                            <td class="main-content-table__td-right"></td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Понедельник-пятница</td>
+                            <td class="main-content-table__td-right">09:00 – 21:00</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Суббота-воскресенье</td>
+                            <td class="main-content-table__td-right">выходной</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                            Адреса электронной почты
+                            </td>
+                            <td class="main-content-table__td-right">mail@mail.ru</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="block__left">
+                    <p class="main-content-table__title">Сведения об офисе обслуживания</p>
+                    <table class="main-content__table">
+                        <tbody>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Адрес</td>
+                            <td class="main-content-table__td-right">
+                            г. Батайск, ул. Козлова, д. 32
+                            </td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Номера телефона</td>
+                            <td class="main-content-table__td-right">+7 (86352) 24-25-2</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">График работы</td>
+                            <td class="main-content-table__td-right"></td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Понедельник-пятница</td>
+                            <td class="main-content-table__td-right">09:00 – 21:00</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">Суббота-воскресенье</td>
+                            <td class="main-content-table__td-right">выходной</td>
+                        </tr>
+                        <tr class="main-content-table__tr">
+                            <td class="main-content-table__td-left">
+                            Адреса электронной почты
+                            </td>
+                            <td class="main-content-table__td-right">mail@mail.ru</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
