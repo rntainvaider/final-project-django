@@ -1,5 +1,7 @@
 import os
 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from dotenv import load_dotenv
 
@@ -8,13 +10,14 @@ from accounts.models import CustomUsers
 _ = load_dotenv()
 
 
-def login(request):
+def log_in(request):
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
 
         custom_user = CustomUsers.objects.filter(email=email, password=password).first()
         if custom_user:
+            login(request, custom_user)
             return redirect("information")
         else:
             context = {
@@ -38,9 +41,6 @@ def settings_user(request):
         phone_number = request.POST.get("phone_number")
         password = request.POST.get("password")
         repeat_password = request.POST.get("repeat_password")
-
-        if full_name:
-            print(user)
 
     context = {
         "site_title": "Настройки",
@@ -67,18 +67,23 @@ def registration(request):
             create_custom_users.password = password
             create_custom_users.save()
 
+            login(request, create_custom_users)
+
             return redirect("information")
 
     context = {"site_title": "Регистрация"}
 
-    return render(request, "registrations.html", context=context)
+    return render(request, "registration.html", context=context)
 
 
+@login_required
 def information(request):
+    user = request.user
+
     context = {
         "site_title": "Информация",
-        "full_name": "ФИО",
-        "email": "email",
+        "full_name": user.full_name,
+        "email": user.email,
     }
 
     return render(request, "information.html", context=context)
@@ -155,3 +160,9 @@ def get_api_map(request):
     context = {"api_maps": api_maps}
 
     return render(request, "contact.html", context=context)
+
+
+def exit(request):
+    logout(request)
+
+    return redirect("login")

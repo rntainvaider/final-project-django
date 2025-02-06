@@ -240,8 +240,8 @@ li {
     flex-direction: column;
     gap: 12px;
 }
-.footer__main-left {
-}
+
+.footer__main-left {}
 
 .footer__main-right-images {
     height: 48px;
@@ -256,8 +256,7 @@ li {
     color: var(--gray-gray-6);
 }
 
-.footer__main-left {
-}
+.footer__main-left {}
 
 .footer__main-left-title {
     font-family: var(--font-family);
@@ -266,6 +265,7 @@ li {
     line-height: 155%;
     color: var(--gray-gray-6);
 }
+
 .footer__main-left-text {
     font-family: var(--font3);
     font-size: 12px;
