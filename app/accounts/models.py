@@ -11,7 +11,9 @@ class CustomUsers(AbstractUser):
     role_id = models.IntegerField(default=1)
 
     groups = models.ManyToManyField(Group, related_name="custom_users_groups")
-    user_permissions = models.ManyToManyField(Permission, related_name="custom_users_permissions")
+    user_permissions = models.ManyToManyField(
+        Permission, related_name="custom_users_permissions"
+    )
 
     class Meta:
         db_table = "custom_user"
