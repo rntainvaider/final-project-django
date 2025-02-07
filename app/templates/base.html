@@ -165,12 +165,14 @@
                     <nav class="main--sidebar__user-panel__nav">
                         <ul class="main--sidebar__user-panel-nav__list">
                             <li class="main--sidebar__user-panel-nav__items">
-                                <img src="{% static "images/sidebar/user-panel/settings.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
+                                <img src="{% static "images/sidebar/user-panel/settings.svg" %}" alt="Настройки" class="main--sidebar__user-panel-nav__images">
                                 <a href="{% url "settings_user" %}" class="main--sidebar__user-panel-nav__link">Настройки</a>
                             </li>
                             <li class="main--sidebar__user-panel-nav__items">
-                                <img src="{% static "images/sidebar/user-panel/exit.svg" %}" alt="" class="main--sidebar__user-panel-nav__images">
-                                <a href="{% url "exit" %}" class="main--sidebar__user-panel-nav__link">Выйти</a>
+                                <img src="{% static "images/sidebar/user-panel/exit.svg" %}" alt="Выход" class="main--sidebar__user-panel-nav__images">
+                                <a href="{% url "log_out" %}" class="main--sidebar__user-panel-nav__link">
+                                    Выйти
+                                </a>
                             </li>
                         </ul>
                     </nav>

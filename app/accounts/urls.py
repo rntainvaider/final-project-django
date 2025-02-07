@@ -26,5 +26,5 @@ urlpatterns = [
     path("assessment/", views.assessment, name="assessment"),
     path("paying/", views.paying, name="paying"),
     path("settings_user/", views.settings_user, name="settings_user"),
-    path("exit/", views.exit, name="exit"),
+    path("log_out/", views.log_out, name="log_out"),
 ]

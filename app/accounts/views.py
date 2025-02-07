@@ -32,25 +32,6 @@ def log_in(request):
     return render(request, "login.html", context=context)
 
 
-def settings_user(request):
-    user = request.user
-
-    if request.method == "POST":
-        full_name = request.POST.get("full_name")
-        email = request.POST.get("email")
-        phone_number = request.POST.get("phone_number")
-        password = request.POST.get("password")
-        repeat_password = request.POST.get("repeat_password")
-
-    context = {
-        "site_title": "Настройки",
-        "full_name": "ФИО",
-        "email": "email",
-    }
-
-    return render(request, "settings_user.html", context=context)
-
-
 def registration(request):
     if request.method == "POST":
         full_name = request.POST.get("full_name")
@@ -77,6 +58,26 @@ def registration(request):
 
 
 @login_required
+def settings_user(request):
+    user = request.user
+
+    if request.method == "POST":
+        full_name = request.POST.get("full_name")
+        email = request.POST.get("email")
+        phone_number = request.POST.get("phone_number")
+        password = request.POST.get("password")
+        repeat_password = request.POST.get("repeat_password")
+
+    context = {
+        "site_title": "Настройки",
+        "full_name": "ФИО",
+        "email": "email",
+    }
+
+    return render(request, "settings_user.html", context=context)
+
+
+@login_required
 def information(request):
     user = request.user
 
@@ -89,72 +90,84 @@ def information(request):
     return render(request, "information.html", context=context)
 
 
+@login_required
 def metering_devices(request):
     context = {"site_title": "Приборы учета"}
 
     return render(request, "metering_devices.html", context=context)
 
 
+@login_required
 def contact(request):
     context = {"site_title": "Контакты"}
 
     return render(request, "contact.html", context=context)
 
 
+@login_required
 def accrual_and_payment_history(request):
     context = {"site_title": "Начислено за текущий период"}
 
     return render(request, "accrual_and_payment_history.html", context=context)
 
 
+@login_required
 def message(request):
     context = {"site_title": "Начисления"}
 
     return render(request, "message.html", context=context)
 
 
+@login_required
 def payment(request):
     context = {"site_title": "Платежи"}
 
     return render(request, "payment.html", context=context)
 
 
+@login_required
 def receipts(request):
     context = {"site_title": "Квитанции"}
 
     return render(request, "receipts.html", context=context)
 
 
+@login_required
 def notification(request):
     context = {"site_title": "Уведомления"}
 
     return render(request, "notification.html", context=context)
 
 
+@login_required
 def consumer_personal_accounts(request):
     context = {"site_title": "Лицевые счета потребителя"}
 
     return render(request, "consumer_personal_accounts.html", context=context)
 
 
+@login_required
 def current_period(request):
     context = {"site_title": "Лицевые счета потребителя"}
 
     return render(request, "current_period.html", context=context)
 
 
+@login_required
 def assessment(request):
     context = {"site_title": "Начисления"}
 
     return render(request, "assessment.html", context=context)
 
 
+@login_required
 def paying(request):
     context = {"site_title": "Платежи"}
 
     return render(request, "paying.html", context=context)
 
 
+@login_required
 def get_api_map(request):
     api_maps = os.getenv("API_YANDEX_MAPS")
     context = {"api_maps": api_maps}
@@ -162,7 +175,8 @@ def get_api_map(request):
     return render(request, "contact.html", context=context)
 
 
-def exit(request):
+@login_required
+def log_out(request):
     logout(request)
 
     return redirect("login")
