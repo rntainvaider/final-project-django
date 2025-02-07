@@ -6,7 +6,18 @@
 {% endblock style %}
 {% block maps %}
     <script src="https://api-maps.yandex.ru/2.1/?apikey={{ api_maps }}&lang=ru_RU" type="text/javascript"></script>
-    <script src="{% static "js/contact.js" %}" type="text/javascript"></script>
+    {% comment %} <script src="{% static "js/contact.js" %}" type="text/javascript"></script> {% endcomment %}
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init(){
+            // Создание карты.
+            var myMap = new ymaps.Map("map", {
+                {% comment %} center: [55.76, 37.64], {% endcomment %}
+                center: [{{ latitude }}, {{ longitude }} ],
+                zoom: 7
+            });
+        }
+    </script>
 {% endblock maps %}
 
 {% block main %}
@@ -25,7 +36,7 @@
                             Адрес
                         </td>
                         <td class="main-content__cell">
-                            г. Батайск, ул. Козлова, д. 32
+                            {{ address }}
                         </td>
                     </tr>
                     <tr class="main-content__row">
@@ -33,7 +44,7 @@
                             Номера телефона
                         </td>
                         <td class="main-content__cell">
-                            +7 (86352) 24-25-2
+                            {{ phone_numbers }}
                         </td>
                     </tr>
                     <tr class="main-content__row">
@@ -49,7 +60,7 @@
                             Понедельник-пятница
                         </td>
                         <td class="main-content__cell">
-                            09:00 – 21:00
+
                         </td>
                     </tr>
                     <tr class="main-content__row">
@@ -57,7 +68,7 @@
                             Суббота-воскресенье
                         </td>
                         <td class="main-content__cell">
-                            выходной
+
                         </td>
                     </tr>
                     <tr class="main-content__row">
@@ -65,7 +76,7 @@
                             Адреса электронной почты
                         </td>
                         <td class="main-content__cell">
-                            mail@mail.ru
+                            {{ email_address }}
                         </td>
                     </tr>
                 </tbody>

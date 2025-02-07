@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from dotenv import load_dotenv
 
-from accounts.models import CustomUsers
+from accounts.models import CustomUsers, ServiceOffices
 
 _ = load_dotenv()
 
@@ -99,7 +99,24 @@ def metering_devices(request):
 
 @login_required
 def contact(request):
-    context = {"site_title": "Контакты"}
+    api_maps = os.getenv("API_YANDEX_MAPS")
+
+    service_offices = ServiceOffices.objects.first()
+    address = service_offices.address
+    phone_numbers = service_offices.phone_numbers
+    email_address = service_offices.email_address
+    latitude = service_offices.latitude
+    longitude = service_offices.longitude
+
+    context = {
+        "site_title": "Контакты",
+        "api_maps": api_maps,
+        "address": address,
+        "phone_numbers": phone_numbers,
+        "email_address": email_address,
+        "latitude": latitude,
+        "longitude": longitude,
+    }
 
     return render(request, "contact.html", context=context)
 
@@ -165,14 +182,6 @@ def paying(request):
     context = {"site_title": "Платежи"}
 
     return render(request, "paying.html", context=context)
-
-
-@login_required
-def get_api_map(request):
-    api_maps = os.getenv("API_YANDEX_MAPS")
-    context = {"api_maps": api_maps}
-
-    return render(request, "contact.html", context=context)
 
 
 @login_required
