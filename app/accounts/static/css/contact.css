@@ -64,7 +64,7 @@
     border-bottom: 1px solid var(--gray-gray-4);
 }
 
-#map {
+.map-container {
     border-radius: 2px;
     width: 660px;
     height: 400px;

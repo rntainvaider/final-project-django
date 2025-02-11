@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from dotenv import load_dotenv
 
-from accounts.models import CustomUsers
+from accounts.models import CustomUsers, ServiceOffices
 
 _ = load_dotenv()
 
@@ -92,77 +92,159 @@ def information(request):
 
 @login_required
 def metering_devices(request):
-    context = {"site_title": "Приборы учета"}
+    user = request.user
+
+    context = {
+        "site_title": "Приборы учета",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "metering_devices.html", context=context)
 
 
 @login_required
 def contact(request):
-    context = {"site_title": "Контакты"}
+    user = request.user
+    service_office = user.service_office
+    work_schedule = user.work_schedule
+
+    office_address = service_office.address
+    office_phone_number = service_office.phone_numbers
+    office_email = service_office.email_address
+    office_latitude = service_office.latitude
+    office_longitude = service_office.longitude
+
+    work_schedule_days = work_schedule.days_of_week.all()
+
+    context = {
+        "site_title": "Контакты",
+        "full_name": user.full_name,
+        "email": user.email,
+        "office_address": office_address,
+        "phone_number": office_phone_number,
+        "email": office_email,
+        "work_schedule_days": work_schedule_days,
+        "office_latitude": office_latitude,
+        "office_longitude": office_longitude,
+    }
 
     return render(request, "contact.html", context=context)
 
 
 @login_required
 def accrual_and_payment_history(request):
-    context = {"site_title": "Начислено за текущий период"}
+    user = request.user
+
+    context = {
+        "site_title": "Начислено за текущий период",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "accrual_and_payment_history.html", context=context)
 
 
 @login_required
 def message(request):
-    context = {"site_title": "Начисления"}
+    user = request.user
+
+    context = {
+        "site_title": "Начисления",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "message.html", context=context)
 
 
 @login_required
 def payment(request):
-    context = {"site_title": "Платежи"}
+    user = request.user
+
+    context = {
+        "site_title": "Платежи",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "payment.html", context=context)
 
 
 @login_required
 def receipts(request):
-    context = {"site_title": "Квитанции"}
+    user = request.user
+
+    context = {
+        "site_title": "Квитанции",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "receipts.html", context=context)
 
 
 @login_required
 def notification(request):
-    context = {"site_title": "Уведомления"}
+    user = request.user
+
+    context = {
+        "site_title": "Уведомления",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "notification.html", context=context)
 
 
 @login_required
 def consumer_personal_accounts(request):
-    context = {"site_title": "Лицевые счета потребителя"}
+    user = request.user
+
+    context = {
+        "site_title": "Лицевые счета потребителя",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "consumer_personal_accounts.html", context=context)
 
 
 @login_required
 def current_period(request):
-    context = {"site_title": "Лицевые счета потребителя"}
+    user = request.user
+
+    context = {
+        "site_title": "Лицевые счета потребителя",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "current_period.html", context=context)
 
 
 @login_required
 def assessment(request):
-    context = {"site_title": "Начисления"}
+    user = request.user
+
+    context = {
+        "site_title": "Начисления",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "assessment.html", context=context)
 
 
 @login_required
 def paying(request):
-    context = {"site_title": "Платежи"}
+    user = request.user
+
+    context = {
+        "site_title": "Платежи",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
 
     return render(request, "paying.html", context=context)
 
@@ -170,7 +252,11 @@ def paying(request):
 @login_required
 def get_api_map(request):
     api_maps = os.getenv("API_YANDEX_MAPS")
-    context = {"api_maps": api_maps}
+    context = {
+        "api_maps": api_maps,
+        "latitude": 55.751574,
+        "longitude": 37.573856,
+    }
 
     return render(request, "contact.html", context=context)
 

@@ -6,7 +6,30 @@
 {% endblock style %}
 {% block maps %}
     <script src="https://api-maps.yandex.ru/2.1/?apikey={{ api_maps }}&lang=ru_RU" type="text/javascript"></script>
-    <script src="{% static "js/contact.js" %}" type="text/javascript"></script>
+    {% comment %} <script src="{% static "js/contact.js" %}" type="text/javascript"></script> {% endcomment %}
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init(){
+            let center = [{{ office_latitude }}, {{ office_longitude }}];
+
+            var myMap = new ymaps.Map("map", {
+                center: center,
+                zoom: 16
+            });
+
+            let placemark = new ymaps.Placemark(center, {}, {
+
+            });
+
+            myMap.controls.remove('geolocationControl');
+            myMap.controls.remove('searchControl');
+            myMap.controls.remove('trafficControl');
+            myMap.controls.remove('fullscreenControl');
+            myMap.controls.remove('rulerControl');
+
+            myMap.geoObjects.add(placemark);
+        }
+    </script>
 {% endblock maps %}
 
 {% block main %}
@@ -25,7 +48,7 @@
                             Адрес
                         </td>
                         <td class="main-content__cell">
-                            г. Батайск, ул. Козлова, д. 32
+                            {{ office_address }}
                         </td>
                     </tr>
                     <tr class="main-content__row">
@@ -33,7 +56,7 @@
                             Номера телефона
                         </td>
                         <td class="main-content__cell">
-                            +7 (86352) 24-25-2
+                            {{ phone_number }}
                         </td>
                     </tr>
                     <tr class="main-content__row">
@@ -44,36 +67,32 @@
 
                         </td>
                     </tr>
-                    <tr class="main-content__row">
-                        <td class="main-content__cell text-align">
-                            Понедельник-пятница
-                        </td>
-                        <td class="main-content__cell">
-                            09:00 – 21:00
-                        </td>
-                    </tr>
-                    <tr class="main-content__row">
-                        <td class="main-content__cell text-align">
-                            Суббота-воскресенье
-                        </td>
-                        <td class="main-content__cell">
-                            выходной
-                        </td>
-                    </tr>
+                    {% for schedule_day in work_schedule_days %}
+                        <tr class="main-content__row">
+                            <td class="main-content__cell text-align">{{ schedule_day.day_of_week }}</td>
+                            {% if schedule_day.is_off_day %}
+                                <td class="main-content__cell">Выходной</td>
+                            {% else %}
+                                <td class="main-content__cell">{{ schedule_day.start_time|date:"H:i" }} – {{ schedule_day.end_time|date:"H:i" }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
                     <tr class="main-content__row">
                         <td class="main-content__cell--header">
                             Адреса электронной почты
                         </td>
                         <td class="main-content__cell">
-                            mail@mail.ru
+                            {{ email }}
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <body>
-            <div id="map">
+            <div class="map-container">
+                <div id="map">
 
+                </div>
             </div>
         </body>
     </div>
