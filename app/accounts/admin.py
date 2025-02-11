@@ -4,8 +4,35 @@ from .models import CustomUsers, ServiceOffices, WorkSchedule, UserRole, WorkSch
 
 
 class CustomUserAdmin(admin.ModelAdmin):
-    list_display = ("id", "full_name", "phone_number", "email", "password", "role_id")
-    list_display_links = ("id", "full_name", "phone_number", "email")
+    list_display = (
+        "id",
+        "full_name",
+        "phone_number",
+        "email",
+        "password",
+        "role_id",
+    )
+    list_display_links = (
+        "full_name",
+        "phone_number",
+        "email",
+    )
+
+
+class ServiceOfficesAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "address",
+        "latitude",
+        "longitude",
+        "phone_numbers",
+        "email_address",
+    )
+    list_display_links = (
+        "address",
+        "phone_numbers",
+        "email_address",
+    )
 
 
 class ServiceOfficesAdmin(admin.ModelAdmin):
