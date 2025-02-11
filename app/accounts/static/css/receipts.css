@@ -1,0 +1,23 @@
+.title {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 135%;
+    color: var(--black);
+}
+
+
+
+
+.li {
+    width: 775px;
+    height: 38px;
+    background-color: red;
+    display: flex;
+}
+
+.ul {
+    border-bottom: 1px solid var(--gray-gray-3);
+    padding: 8px 0px 8px 16px;
+    width: 192px;
+    height: 38px;
+}

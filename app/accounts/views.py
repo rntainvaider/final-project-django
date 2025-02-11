@@ -1,11 +1,11 @@
 import os
-
+from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from dotenv import load_dotenv
 
-from accounts.models import CustomUsers, ServiceOffices
+from accounts.models import CustomUsers
 
 _ = load_dotenv()
 
@@ -159,21 +159,10 @@ def message(request):
 
 
 @login_required
-def payment(request):
-    user = request.user
-
-    context = {
-        "site_title": "Платежи",
-        "full_name": user.full_name,
-        "email": user.email,
-    }
-
-    return render(request, "payment.html", context=context)
-
-
-@login_required
 def receipts(request):
     user = request.user
+
+    paginator = Paginator(per_page=3)
 
     context = {
         "site_title": "Квитанции",
@@ -208,6 +197,19 @@ def consumer_personal_accounts(request):
     }
 
     return render(request, "consumer_personal_accounts.html", context=context)
+
+
+@login_required
+def payment(request):
+    user = request.user
+
+    context = {
+        "site_title": "Платежи",
+        "full_name": user.full_name,
+        "email": user.email,
+    }
+
+    return render(request, "payment.html", context=context)
 
 
 @login_required

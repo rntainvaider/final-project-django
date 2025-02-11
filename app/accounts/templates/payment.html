@@ -1,1 +1,114 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/payment.css" %}">
+{% endblock style %}
+
+{% block script %}
+    <script src="{% static "js/payment.js" %}" defer></script>
+{% endblock script %}
+
+{% block main %}
+    <p class="title">
+        Оплаты
+    </p>
+    <div class="flex-container">
+        <div class="payment minus-block">
+            <p class="payment-title">
+                Оплата
+            </p>
+            <form action="" class="payment-from">
+                <div class="form-wrapper">
+                    <div class="input-group">
+                        <label for="summa_payment" class="form_label">
+                            Сумма оплаты
+                            <span class="error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="number" step="0.01" class="from_iput" id="summa_payment" name="summa_payment">
+                    </div>
+                    <div class="input-group">
+                        <label for="email" class="form_label">
+                            E-mail (для получения чека)
+                            <span class="error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="text" class="from_iput" id="email" name="email">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="period_payment" class="form_label">
+                        Период оплаты
+                        <span class="error-star">
+                            *
+                        </span>
+                    </label>
+                    <input type="month" class="from_iput" id="period_payment" name="period_payment">
+                </div>
+                <div class="input-group">
+                    <div class="btn-flex">
+                        <input type="submit" value="Оплатить" class="btn-payment">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="payment plus-none">
+            <p class="plus">
+                Спасибо! Ваш платёж принят в обработку!
+            </p>
+        </div>
+        <div class="payment">
+            <p class="payment-title">
+                К оплате
+            </p>
+            <table class="payment-summary">
+                <tr class="payment-summary__row">
+                    <td class="payment-summary__title table-td">
+                        Общая сумма к оплате, в т.ч.
+                    </td>
+                    <td class="payment-summary__value table-td">
+                        99 999,00 ₽
+                    </td>
+                </tr>
+                <tr class="payment-summary__row">
+                    <td class="payment-summary__title-right table-td">
+                        — за услуги
+                    </td>
+                    <td class="payment-summary__value table-td">
+                        9 999,00 ₽
+                    </td>
+                </tr>
+                <tr class="payment-summary__row">
+                    <td class="payment-summary__title-right table-td">
+                        — по пене
+                    </td>
+                    <td class="payment-summary__value table-td">
+                        999,00 ₽
+                    </td>
+                </tr>
+                <tr class="payment-summary__row">
+                    <td class="payment-summary__title">
+
+                    </td>
+                    <td class="payment-summary__value">
+                        <div class="btn-detail">
+                            <span>Подробнее</span>
+                            <img src="{% static "images/down-arrow.svg" %}" alt="" class="btn-detail__image">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="payment-summary__row hide">
+                    <td class="payment-summary__title table-td">
+                        Учтена последняя оплата
+                    </td>
+                    <td class="payment-summary__value table-td">
+                        335 ₽ (04.07.2012)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock main %}

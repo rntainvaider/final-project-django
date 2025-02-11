@@ -14,7 +14,6 @@ urlpatterns = [
         name="accrual_and_payment_history",
     ),
     path("message/", views.message, name="message"),
-    path("payment/", views.payment, name="payment"),
     path("receipts/", views.receipts, name="receipts"),
     path("notification/", views.notification, name="notification"),
     path(
@@ -27,4 +26,5 @@ urlpatterns = [
     path("paying/", views.paying, name="paying"),
     path("settings_user/", views.settings_user, name="settings_user"),
     path("log_out/", views.log_out, name="log_out"),
+    path("payment/", views.payment, name="payment"),
 ]
