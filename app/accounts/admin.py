@@ -1,6 +1,13 @@
 from django.contrib import admin
 
-from .models import CustomUsers, ServiceOffices, WorkSchedule, UserRole, WorkScheduleDay
+from .models import (
+    CustomUsers,
+    ServiceOffices,
+    WorkSchedule,
+    UserRole,
+    WorkScheduleDay,
+    Receipt,
+)
 
 
 class CustomUserAdmin(admin.ModelAdmin):
@@ -46,3 +53,4 @@ admin.site.register(ServiceOffices, ServiceOfficesAdmin)
 admin.site.register(WorkSchedule, WorkScheduleAdmin)
 admin.site.register(UserRole)
 admin.site.register(WorkScheduleDay, WorkScheduleDayAdmin)
+admin.site.register(Receipt)

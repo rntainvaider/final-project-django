@@ -5,110 +5,90 @@
     <link rel="stylesheet" href="{% static "css/receipts.css" %}">
 {% endblock style %}
 
+{% block script %}
+    <script src="{% static "js/receipts.js" %}" defer></script>
+{% endblock script %}
+
 {% block main %}
-    <p class="title">
+    <p class="main__title">
         Квитанции
     </p>
-    <li class="li">
-        <ul class="ul">
-            Athena Weissnat
+    <div class="main_container">
+        <div class="filter-form">
+            <div class="filter-form__group">
+                <img src="{% static "images/search.svg" %}" alt="" class="filter-form__img">
+                <input type="text" placeholder="Поиск" class="filter-from__input filter-form__search">
+            </div>
+            <div class="filter-form__group">
+                <img src="{% static "images/calendar.svg" %}" alt="" class="filter-form__img">
+                <input type="date" class="filter-from__input filter-form__date">
+            </div>
+        </div>
+        <ul class="table-header">
+            <li class="table-header__item">
+                <span class="table-header__title">
+                    Месяц
+                </span>
+                <img src="{% static "images/shooters.svg" %}" alt="" class="table-header__img">
+            </li>
+            <li class="table-header__item">
+                <span class="table-header__title">
+                    Сумма
+                </span>
+                <img src="{% static "images/shooters.svg" %}" alt="" class="table-header__img">
+            </li>
+            <li class="table-header__item">
+                <span class="table-header__title">
+                    Пени
+                </span>
+                <img src="{% static "images/shooters.svg" %}" alt="" class="table-header__img">
+            </li>
+            <li class="table-header__item">
+
+            </li>
         </ul>
-        <ul class="ul">
-            Athena Weissnat
+        {% for item in page_obj %}
+        <ul class="table-header">
+            <li class="table-header__item">
+                <span class="table-header__title">
+                    {{ item.period }}
+                </span>
+            </li>
+            <li class="table-header__item">
+                <span class="table-header__title">
+                    {{ item.summma }}
+                </span>
+            </li>
+            <li class="table-header__item">
+                <span class="table-header__title">
+                    {{ item.peni }}
+                </span>
+            </li>
+            <li class="table-header__item">
+                <div class="table-header__wrapper">
+                    <div class="table-header__content">
+                        <img src="{% static "images/detail.svg" %}" alt="">
+                        <span class="table-header__content-title">
+                            Детализация
+                        </span>
+                    </div>
+                    <div class="table-header__action">
+                        <img src="{% static "images/download.svg" %}" alt="">
+                    </div>
+                </div>
+            </li>
         </ul>
-        <ul class="ul">
-            Athena Weissnat
+        {% endfor %}
+        <ul class="pagination">
+            {% for page in pagination_range %}
+                {% if page == '...' %}
+                    <li class="disabled"><span>...</span></li>
+                {% elif page == page_obj.number %}
+                    <li class="active"><span>{{ page }}</span></li>
+                {% else %}
+                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
         </ul>
-        <ul class="ul">
-            Детализация
-        </ul>
-        <ul class="ul">
-            <img src="{% static "images/download.svg" %}" alt="">
-        </ul>
-    </li>
-    <li class="li">
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Детализация
-        </ul>
-        <ul class="ul">
-            <img src="{% static "images/download.svg" %}" alt="">
-        </ul>
-    </li>
-    <li class="li">
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Детализация
-        </ul>
-        <ul class="ul">
-            <img src="{% static "images/download.svg" %}" alt="">
-        </ul>
-    </li>
-    <li class="li">
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Детализация
-        </ul>
-        <ul class="ul">
-            <img src="{% static "images/download.svg" %}" alt="">
-        </ul>
-    </li>
-    <li class="li">
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Детализация
-        </ul>
-        <ul class="ul">
-            <img src="{% static "images/download.svg" %}" alt="">
-        </ul>
-    </li>
-    <li class="li">
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Athena Weissnat
-        </ul>
-        <ul class="ul">
-            Детализация
-        </ul>
-        <ul class="ul">
-            <img src="{% static "images/download.svg" %}" alt="">
-        </ul>
-    </li>
+    </div>
 {% endblock main %}

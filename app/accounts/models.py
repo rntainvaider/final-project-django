@@ -12,6 +12,20 @@ class UserRole(models.Model):
         verbose_name = "Роль пользователя"
 
 
+class Receipt(models.Model):
+    id = models.AutoField(primary_key=True)
+    personal_account = models.CharField()
+    period = models.DateField()
+    summma = models.CharField()
+    peni = models.CharField()
+    file_receipts = models.CharField()
+
+    class Meta:
+        db_table = "receipts"
+        verbose_name_plural = "Квитанции"
+        verbose_name = "Квитанция"
+
+
 class ServiceOffices(models.Model):
     id = models.AutoField(primary_key=True)
     address = models.CharField(max_length=128, verbose_name="Адрес")
@@ -22,7 +36,7 @@ class ServiceOffices(models.Model):
         unique=True, max_length=128, verbose_name="Адрес электронной почты"
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.address}"
 
     class Meta:

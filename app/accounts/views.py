@@ -1,11 +1,11 @@
 import os
-from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from dotenv import load_dotenv
+from django.core.paginator import Paginator
 
-from accounts.models import CustomUsers
+from accounts.models import CustomUsers, Receipt
 
 _ = load_dotenv()
 
@@ -81,10 +81,27 @@ def settings_user(request):
 def information(request):
     user = request.user
 
+    service_office = user.service_office
+    work_schedule = user.work_schedule
+
+    office_address = service_office.address
+    office_phone_number = service_office.phone_numbers
+    office_email = service_office.email_address
+    office_latitude = service_office.latitude
+    office_longitude = service_office.longitude
+
+    work_schedule_days = work_schedule.days_of_week.all()
+
     context = {
         "site_title": "Информация",
         "full_name": user.full_name,
         "email": user.email,
+        "office_address": office_address,
+        "phone_number": office_phone_number,
+        "office_email": office_email,
+        "work_schedule_days": work_schedule_days,
+        "office_latitude": office_latitude,
+        "office_longitude": office_longitude,
     }
 
     return render(request, "information.html", context=context)
@@ -123,7 +140,7 @@ def contact(request):
         "email": user.email,
         "office_address": office_address,
         "phone_number": office_phone_number,
-        "email": office_email,
+        "office_email": office_email,
         "work_schedule_days": work_schedule_days,
         "office_latitude": office_latitude,
         "office_longitude": office_longitude,
@@ -158,16 +175,49 @@ def message(request):
     return render(request, "message.html", context=context)
 
 
+def get_pagination_range(page_obj, num_pages_to_display: int = 5):
+    current_page = page_obj.number
+    total_pages = page_obj.paginator.num_pages
+    half_range = num_pages_to_display // 2
+
+    if total_pages <= num_pages_to_display:
+        return range(1, total_pages + 1)
+
+    start_page = max(current_page - half_range, 1)
+    end_page = min(current_page + half_range, total_pages)
+
+    if start_page > 1:
+        if end_page < total_pages:
+            return list(range(start_page, end_page + 1)) + ["...", total_pages]
+        # return list(range(start_page, end_page + 1))
+        return [1, "..."] + list(range(start_page, end_page + 1))
+    if end_page < total_pages:
+        # return [1, "..."] + list(range(start_page, end_page + 1))
+        # return list(range(start_page, end_page + 1))
+        return list(range(start_page, end_page + 1)) + ["...", total_pages]
+    # return [1, "..."] + list(range(start_page, end_page + 1))
+    # return list(range(start_page, end_page + 1))
+
+
 @login_required
 def receipts(request):
     user = request.user
 
-    paginator = Paginator(per_page=3)
+    data = Receipt.objects.all()
+    paginator = Paginator(data, 10)
+
+    # Получение текущей страницы из параметров GET
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    pagination_range = get_pagination_range(page_obj)
 
     context = {
         "site_title": "Квитанции",
         "full_name": user.full_name,
         "email": user.email,
+        "page_obj": page_obj,
+        "pagination_range": pagination_range,
     }
 
     return render(request, "receipts.html", context=context)

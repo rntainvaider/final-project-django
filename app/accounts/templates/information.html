@@ -16,7 +16,7 @@
                         <tbody>
                         <tr class="main-content-table__tr">
                             <td class="main-content-table__td-left">ФИО</td>
-                            <td class="main-content-table__td-right">Иванов Иван Иванович</td>
+                            <td class="main-content-table__td-right">{{ full_name }}</td>
                         </tr>
                         <tr class="main-content-table__tr">
                             <td class="main-content-table__td-left">
@@ -45,36 +45,50 @@
                     </table>
                 </div>
                 <div class="block__left">
-                    <p class="main-content-table__title">Сведения об офисе обслуживания</p>
+                    <p class="main-content-table__title">
+                        Сведения об офисе обслуживания
+                    </p>
                     <table class="main-content__table">
                         <tbody>
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">Адрес</td>
+                            <td class="main-content-table__td-left">
+                                Адрес
+                            </td>
                             <td class="main-content-table__td-right">
-                            г. Батайск, ул. Козлова, д. 32
+                            {{ office_address }}
                             </td>
                         </tr>
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">Номера телефона</td>
-                            <td class="main-content-table__td-right">+7 (86352) 24-25-2</td>
+                            <td class="main-content-table__td-left">
+                                Номера телефона
+                            </td>
+                            <td class="main-content-table__td-right">
+                                {{ phone_number }}
+                            </td>
                         </tr>
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">График работы</td>
+                            <td class="main-content-table__td-left">
+                                График работы
+                            </td>
                             <td class="main-content-table__td-right"></td>
                         </tr>
+                        {% for schedule_day in work_schedule_days %}
                         <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">Понедельник-пятница</td>
-                            <td class="main-content-table__td-right">09:00 – 21:00</td>
+                            <td class="main-content-table__td-left">{{ schedule_day.day_of_week }}</td>
+                            {% if schedule_day.is_off_day %}
+                                <td class="main-content-table__td-right">Выходной</td>
+                            {% else %}
+                                <td class="main-content-table__td-right">{{ schedule_day.start_time|date:"H:i" }} – {{ schedule_day.end_time|date:"H:i" }}</td>
+                            {% endif %}
                         </tr>
-                        <tr class="main-content-table__tr">
-                            <td class="main-content-table__td-left">Суббота-воскресенье</td>
-                            <td class="main-content-table__td-right">выходной</td>
-                        </tr>
+                        {% endfor %}
                         <tr class="main-content-table__tr">
                             <td class="main-content-table__td-left">
                             Адреса электронной почты
                             </td>
-                            <td class="main-content-table__td-right">mail@mail.ru</td>
+                            <td class="main-content-table__td-right">
+                                {{ office_email }}
+                            </td>
                         </tr>
                         </tbody>
                     </table>
