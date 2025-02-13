@@ -1,224 +1,158 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ site_title }}</title>
+{% block style %}
     <link rel="stylesheet" href="{% static "css/registration.css" %}">
+{% endblock style %}
+
+{% block script %}
     <script src="{% static "js/registration.js" %}" defer></script>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="header__main">
-          <div class="header__logo">
-            <a class="header__logo-link" href="#">
-              <img class="header__logo-img" src="{% static "images/logo.svg" %}" alt="logo" />
-            </a>
-            <p class="header__logo-text">
-              Личный кабинет потребителя
+{% endblock script %}
+
+{% block main %}
+    <div class="main">
+        <div class="reg-from__content">
+            <p class="reg-form__title">
+                Регистрация
             </p>
-          </div>
-          <nav class="header__nav">
-            <ul class="header__nav-list">
-              <li class="header__nav-items">
-                <a class="header__nav-link" href="#">
-                  <img class="header__help" src="{% static "images/help.svg" %}" alt="help" />
+            <p class="reg-form__login">
+                Уже есть учётная запись?
+                <a href="{% url "login" %}" class="reg__form-link">
+                    Войти
                 </a>
-              </li>
-              <li>
-                <a class="header__nav-link" href="#">
-                  <img class="header__notification" src="{% static "images/notification.svg" %}" alt="notification" />
-                </a>
-              </li>
-            </ul>
-          </nav>
+            </p>
         </div>
-      </div>
-    </header>
-    <main class="main">
-      <div class="container">
-          <div class="regisration">
-              <div class="registration__main">
-                  <h2 class="registration__title">
-                      Регистрация
-                  </h2>
-                  <div class="registration__text">
-                      <p class="registration__text-content">
-                        Уже есть учётная запись?
-                      </p>
-                      <a class="registration__text-content registration__link" href="{% url "login" %}">
-                        Войти
-                      </a>
-                  </div>
-              </div>
-              <form action="{% url "registration" %}" method="POST" class="registration__form">
-                {% csrf_token %}
-                <div class="registration_container">
-
-                  <div class="group__left">
-                    <div class="form-group__left">
-                      <div class="registration__form-group">
-                        <label class="form-group__label" for="full_name">
-                            ФИО
-                            <span class="error-star">
-                              *
+        <form action="" class="reg-form">
+            <div class="reg-form__wrapper">
+                <div class="reg-form__flex reg-form__left">
+                    <div class="reg-form__group">
+                        <label for="last_name" class="reg-form__label">
+                            Фамилия
+                            <span class="form__error-star">
+                                *
                             </span>
                         </label>
-                        <input class="form-group__input" type="text" id="full_name" name="full_name" placeholder="Введите ФИО">
-                      </div>
-                      <div class="registration__form-group">
-                          <label class="form-group__label" for="email">
-                              E-mail
-                              <span class="error-star">
-                                *
-                              </span>
-                          </label>
-                          <input class="form-group__input" type="email" id="email" name="email" placeholder="Введите E-mail">
-                          <span class="form-group__input-error">
-                            Введите адрес электронной почты
-                          </span>
-                      </div>
-                      <div class="registration__form-group">
-                          <label class="form-group__label" for="phone">
-                              Телефон
-                              <span class="error-star">
-                                *
-                              </span>
-                          </label>
-                          <input class="form-group__input" type="text" id="phone" name="phone" placeholder="Номер телефона">
-                          <span class="form-group__input-error">
-                            Введите номер телефона
-                          </span>
-                      </div>
+                        <input type="text" name="last_name" id="last_name" class="reg-form__input" placeholder="Введите фамилию">
                     </div>
-                  </div>
-
-                  <div class="group__right">
-                    <div class="form-group__right">
-                      <div class="registration__form-group">
-                        <label class="form-group__label" for="password">
+                    <div class="reg-form__group">
+                        <label for="first_name" class="reg-form__label">
+                            Имя
+                            <span class="form__error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="text" name="first_name" id="first_name" class="reg-form__input" placeholder="Введите имя">
+                    </div>
+                    <div class="reg-form__group">
+                        <label for="middle_name" class="reg-form__label">
+                            Отчество
+                            <span class="form__error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="text" name="middle_name" id="middle_name" class="reg-form__input" placeholder="Введите отчество">
+                    </div>
+                    <div class="reg-form__group">
+                        <label for="phone" class="reg-form__label">
+                            Телефон
+                            <span class="form__error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="phone" name="phone" id="phone" class="reg-form__input" placeholder="Введите номер телефона">
+                    </div>
+                </div>
+                <div class="reg-form__flex reg-form__right">
+                    <div class="reg-form__group">
+                        <label for="email" class="reg-form__label">
+                            Email
+                            <span class="form__error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="email" name="email" id="email" class="reg-form__input" placeholder="Введите email">
+                    </div>
+                    <div class="reg-form__group">
+                        <label for="password" class="reg-form__label">
                             Пароль
-                            <span class="error-star">
-                              *
+                            <span class="form__error-star">
+                                *
                             </span>
                         </label>
-                        <input class="form-group__input" type="password" id="password" name="password" placeholder="Пароль">
-                      </div>
-                      <div class="form-group__error-password">
-                        <div class="error-password__lines">
-                          <div class="error-password__lines-items"></div>
-                          <div class="error-password__lines-items"></div>
-                          <div class="error-password__lines-items"></div>
-                          <div class="error-password__lines-items"></div>
-                        </div>
-                        <div class="group__error-password">
-                          <div class="error-password">
-                            <img src="{% static "images/cross.svg" %}" alt="Крестик" class="error-password__images">
-                            <p class="error-password__text">
-                              Содержит только латинские буквы
-                            </p>
-                          </div>
-                          <div class="error-password">
-                            <img src="{% static "images/cross.svg" %}" alt="Крестик" class="error-password__images">
-                            <p class="error-password__text">
-                              Содержит минимум 8 символов
-                            </p>
-                          </div>
-                          <div class="error-password">
-                            <img src="{% static "images/cross.svg" %}" alt="Крестик" class="error-password__images">
-                            <p class="error-password__text">
-                              Включает цифры
-                            </p>
-                          </div>
-                          <div class="error-password">
-                            <img src="{% static "images/cross.svg" %}" alt="Крестик" class="error-password__images">
-                            <p class="error-password__text">
-                              Включает строчные буквы
-                            </p>
-                          </div>
-                          <div class="error-password">
-                            <img src="{% static "images/cross.svg" %}" alt="Крестик" class="error-password__images">
-                            <p class="error-password__text">
-                              Включает заглавные буквы
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="registration__form-group">
-                        <label class="form-group__label" for="password">
-                            Повторите пароль
-                            <span class="error-star">
-                              *
-                            </span>
-                        </label>
-                        <input class="form-group__input" type="password" id="repeat_password" name="repeat_password" placeholder="Повторите пароль">
-                        <span class="form-group__input-error">Пароли не совпадают</span>
-                      </div>
+                        <input type="password" name="password" id="password" class="reg-form__input" placeholder="Введите пароль">
                     </div>
-                  </div>
+                    <div class="form-error__lines">
+                        <div class="form-error__line">
 
+                        </div>
+                        <div class="form-error__line">
 
+                        </div>
+                        <div class="form-error__line">
 
+                        </div>
+                        <div class="form-error__line">
+
+                        </div>
+                    </div>
+                    <div class="form-error__message">
+                        <div class="form-error__content">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
+                            <p class="form-error__text">
+                                Содержит только латинские буквы
+                            </p>
+                        </div>
+                        <div class="form-error__content">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
+                            <p class="form-error__text">
+                                Содержит минимум 8 символов
+                            </p>
+                        </div>
+                        <div class="form-error__content">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
+                            <p class="form-error__text">
+                                Включает цифры
+                            </p>
+                        </div>
+                        <div class="form-error__content">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
+                            <p class="form-error__text">
+                                Включает строчные буквы
+                            </p>
+                        </div>
+                        <div class="form-error__content">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
+                            <p class="form-error__text">
+                                Включает заглавные буквы
+                            </p>
+                        </div>
+                    </div>
+                    <div class="reg-form__group">
+                        <label for="repeat_password" class="reg-form__label">
+                            Повторите пароль
+                            <span class="form__error-star">
+                                *
+                            </span>
+                        </label>
+                        <input type="password" name="repeat_password" id="repeat_password" class="reg-form__input" placeholder="Повторите пароль">
+                    </div>
                 </div>
-                  <div class="registration__form-checkbox">
-                      <input class="form-checkbox__input" type="checkbox" id="checkbox" name="checkbox">
-                      <label class="form-checkbox__label" for="checkbox">
-                          Даю
-                          <a class="form-checkbox__link" href="#">
-                              согласие на обработку моих персональных данных.
-                          </a>
-                      </label>
-                  </div>
-                  <div class="registration__form--horizontal-stepper">
-                      <div class="form--horizontal-stepper__circle-one">
-                          1
-                      </div>
-                      <div class="form--horizontal-stepper__line">
-
-                      </div>
-                      <div class="form--horizontal-stepper__circle-two">
-                          2
-                      </div>
-                  </div>
-                  <div class="registration__form-button">
-                    <a href="{% url "information" %}">
-                      <input class="form-button__btn" type="submit" value="Дальше >">
-                      {% comment %} <button class="form-button__btn" name="action">Дальше</button> {% endcomment %}
+            </div>
+            <div class="form-checkbox">
+                <input type="checkbox" name="agreement" id="agreement" class="form-checkbox__input">
+                <label for="agreement" class="form-checkbox__label">
+                    Даю
+                    <a href="#" class="from-checkbox__link">
+                        согласие на обработку моих персональных данных.
                     </a>
-                </div>
-              </form>
-          </div>
-      </div>
-  </main>
-  <footer class="footer">
-      <div class="container">
-          <div class="footer__main">
-              <div class="footer__items">
-                  <div class="footer__items-left">
-                      <img src="{% static "images/logo.svg" %}" alt="logo" class="footer__items-left-img-logo">
-                      <p class="footer__items-left-text">©ООО “ДТС”, 2023</p>
-                  </div>
-                  <div class="footer__items-right">
-                      <p class="footer__items-right-title">
-                          Офис обслуживания
-                      </p>
-                      <p class="footer__items-right-text">
-                          г. Батайск, ул. Козлова, д. 32<br>
-                          Тел:
-                          <a class="items-right-text__phone" href="tel:+78635224252">
-                            +7 (86352) 24-25-2
-                          </a><br>
-                          Пн- Пт: 17:00 - 22:00<br>
-                          Сб-Вс: выходной<br>
-                          mail@mail.ru
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </footer>
-  </body>
-</html>
+                </label>
+            </div>
+            <div class="form-button__container">
+                <button class="form-button__next">
+                    Дальше
+                    <img src="{% static "images/registration/arrow-right.svg" %}" alt="" class="button__next-img">
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock main %}

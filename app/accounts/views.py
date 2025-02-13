@@ -1,34 +1,43 @@
 import os
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from dotenv import load_dotenv
-from django.core.paginator import Paginator
 
 from accounts.models import CustomUsers, Receipt
 
 _ = load_dotenv()
 
 
-def log_in(request):
-    if request.method == "POST":
-        email = request.POST.get("email")
-        password = request.POST.get("password")
+# def log_in(request):
+#     if request.method == "POST":
+#         email = request.POST.get("email")
+#         password = request.POST.get("password")
 
-        custom_user = CustomUsers.objects.filter(email=email, password=password).first()
-        if custom_user:
-            login(request, custom_user)
-            return redirect("information")
-        else:
-            context = {
-                "site_title": "Авторизация",
-            }
+#         custom_user = CustomUsers.objects.filter(email=email, password=password).first()
+#         if custom_user:
+#             login(request, custom_user)
+#             return redirect("information")
+#         else:
+#             context = {
+#                 "site_title": "Авторизация",
+#             }
 
-            return render(request, "login.html", context=context)
+#             return render(request, "login.html", context=context)
 
+#     context = {
+#         "site_title": "Авторизация",
+#     }
+#     return render(request, "login.html", context=context)
+
+
+def login(request):
     context = {
-        "site_title": "Авторизация",
+        "page_title": "Авторизация",
     }
+
     return render(request, "login.html", context=context)
 
 
@@ -37,7 +46,7 @@ def registration(request):
         "page_title": "Регистрация",
     }
 
-    return render(request, "registration-new.html", context=context)
+    return render(request, "registration.html", context=context)
 
 
 # def registration(request):
