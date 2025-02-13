@@ -33,28 +33,36 @@ def log_in(request):
 
 
 def registration(request):
-    if request.method == "POST":
-        full_name = request.POST.get("full_name")
-        email = request.POST.get("email")
-        phone_number = request.POST.get("phone")
-        password = request.POST.get("password")
-        repeat_password = request.POST.get("repeat_password")
+    context = {
+        "page_title": "Регистрация",
+    }
 
-        if full_name and email and phone_number and password and repeat_password:
-            create_custom_users = CustomUsers()
-            create_custom_users.full_name = full_name
-            create_custom_users.email = email
-            create_custom_users.phone_number = phone_number
-            create_custom_users.password = password
-            create_custom_users.save()
+    return render(request, "registration-new.html", context=context)
 
-            login(request, create_custom_users)
 
-            return redirect("information")
+# def registration(request):
+#     if request.method == "POST":
+#         full_name = request.POST.get("full_name")
+#         email = request.POST.get("email")
+#         phone_number = request.POST.get("phone")
+#         password = request.POST.get("password")
+#         repeat_password = request.POST.get("repeat_password")
 
-    context = {"site_title": "Регистрация"}
+#         if full_name and email and phone_number and password and repeat_password:
+#             create_custom_users = CustomUsers()
+#             create_custom_users.full_name = full_name
+#             create_custom_users.email = email
+#             create_custom_users.phone_number = phone_number
+#             create_custom_users.password = password
+#             create_custom_users.save()
 
-    return render(request, "registration.html", context=context)
+#             login(request, create_custom_users)
+
+#             return redirect("information")
+
+#     context = {"site_title": "Регистрация"}
+
+#     return render(request, "registration.html", context=context)
 
 
 @login_required
