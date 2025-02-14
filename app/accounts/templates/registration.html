@@ -11,147 +11,154 @@
 
 {% block main %}
     <div class="main">
-        <div class="reg-from__content">
-            <p class="reg-form__title">
-                Регистрация
-            </p>
-            <p class="reg-form__login">
-                Уже есть учётная запись?
-                <a href="{% url "login" %}" class="reg__form-link">
-                    Войти
-                </a>
-            </p>
-        </div>
+        <p class="main__title">
+            Регистрация
+        </p>
+        <p class="main__text">
+            Уже есть учётная запись?
+            <a href="{% url "login" %}" class="main__link">
+                Войти
+            </a>
+        </p>
         <form action="" class="reg-form">
-            <div class="reg-form__wrapper">
-                <div class="reg-form__flex reg-form__left">
+            <div class="reg-form__left">
+                <div class="reg-form__wrapper">
                     <div class="reg-form__group">
                         <label for="last_name" class="reg-form__label">
                             Фамилия
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-left">
                                 *
                             </span>
                         </label>
-                        <input type="text" name="last_name" id="last_name" class="reg-form__input" placeholder="Введите фамилию">
+                        <input type="text" name="last_name" id="last_name" placeholder="Введите фамилию" class="reg-form__input reg-form__input-left">
                     </div>
                     <div class="reg-form__group">
                         <label for="first_name" class="reg-form__label">
                             Имя
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-left">
                                 *
                             </span>
                         </label>
-                        <input type="text" name="first_name" id="first_name" class="reg-form__input" placeholder="Введите имя">
+                        <input type="text" name="first_name" id="first_name" placeholder="Введите имя" class="reg-form__input reg-form__input-left">
                     </div>
                     <div class="reg-form__group">
-                        <label for="middle_name" class="reg-form__label">
+                        <label for="midle_name" class="reg-form__label">
                             Отчество
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-left">
                                 *
                             </span>
                         </label>
-                        <input type="text" name="middle_name" id="middle_name" class="reg-form__input" placeholder="Введите отчество">
+                        <input type="text" name="midle_name" id="midle_name" placeholder="Введите отчество" class="reg-form__input reg-form__input-left">
                     </div>
                     <div class="reg-form__group">
                         <label for="phone" class="reg-form__label">
                             Телефон
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-left">
                                 *
                             </span>
                         </label>
-                        <input type="phone" name="phone" id="phone" class="reg-form__input" placeholder="Введите номер телефона">
+                        <input type="phone" name="phone" id="phone" placeholder="Введите номер телефона" oninput="maskPhone(this)" onfocus="applyMask(this)" maxlength="18" class="reg-form__input reg-form__input-left">
                     </div>
                 </div>
-                <div class="reg-form__flex reg-form__right">
+                <div class="reg-form__btn">
+                    <button id="btn__next" class="reg-form__button">
+                        Дальше
+                        <img src="{% static "images/registration/arrow-right.svg" %}" alt="" class="reg-from__btn-img">
+                    </button>
+                </div>
+            </div>
+            <div class="reg-form__right">
+                <div class="reg-form__wrapper">
                     <div class="reg-form__group">
                         <label for="email" class="reg-form__label">
                             Email
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-right">
                                 *
                             </span>
                         </label>
-                        <input type="email" name="email" id="email" class="reg-form__input" placeholder="Введите email">
+                        <input type="email" name="email" id="email" placeholder="Введите email" class="reg-form__input reg-form__input-right">
                     </div>
                     <div class="reg-form__group">
                         <label for="password" class="reg-form__label">
                             Пароль
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-right">
                                 *
                             </span>
                         </label>
-                        <input type="password" name="password" id="password" class="reg-form__input" placeholder="Введите пароль">
-                    </div>
-                    <div class="form-error__lines">
-                        <div class="form-error__line">
-
-                        </div>
-                        <div class="form-error__line">
-
-                        </div>
-                        <div class="form-error__line">
-
-                        </div>
-                        <div class="form-error__line">
-
+                        <div class="form-password-input__wrapper input__password">
+                            <input type="password" name="password" id="password" placeholder="Введите пароль" class="form-password-input__field reg-form__input-right">
+                            <button class="form-password-input__btn">
+                                <img src="{% static "images/registration/eye.svg" %}" alt="Показать пароль" class="form-password-input__icon">
+                            </button>
                         </div>
                     </div>
-                    <div class="form-error__message">
-                        <div class="form-error__content">
-                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
-                            <p class="form-error__text">
+                    <div class="reg-form__blocks">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    <div class="reg-form-password__error">
+                        <div class="reg-form-password__error-wrapper" id="is-latin__letters">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="Крестик" class="reg-form-password__error-icon">
+                            <p class="reg-form-password__error-text">
                                 Содержит только латинские буквы
                             </p>
                         </div>
-                        <div class="form-error__content">
-                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
-                            <p class="form-error__text">
+                        <div class="reg-form-password__error-wrapper" id="is-lenght__eight">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="Крестик" class="reg-form-password__error-icon">
+                            <p class="reg-form-password__error-text">
                                 Содержит минимум 8 символов
                             </p>
                         </div>
-                        <div class="form-error__content">
-                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
-                            <p class="form-error__text">
+                        <div class="reg-form-password__error-wrapper" id="is-digit">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="Крестик" class="reg-form-password__error-icon">
+                            <p class="reg-form-password__error-text">
                                 Включает цифры
                             </p>
                         </div>
-                        <div class="form-error__content">
-                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
-                            <p class="form-error__text">
+                        <div class="reg-form-password__error-wrapper" id="is-lower">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="Крестик" class="reg-form-password__error-icon">
+                            <p class="reg-form-password__error-text">
                                 Включает строчные буквы
                             </p>
                         </div>
-                        <div class="form-error__content">
-                            <img src="{% static "images/registration/cross.svg" %}" alt="" class="form-error__icon">
-                            <p class="form-error__text">
+                        <div class="reg-form-password__error-wrapper" id="is-upper">
+                            <img src="{% static "images/registration/cross.svg" %}" alt="Крестик" class="reg-form-password__error-icon">
+                            <p class="reg-form-password__error-text">
                                 Включает заглавные буквы
                             </p>
                         </div>
                     </div>
                     <div class="reg-form__group">
-                        <label for="repeat_password" class="reg-form__label">
+                        <label for="password_repeat" class="reg-form__label">
                             Повторите пароль
-                            <span class="form__error-star">
+                            <span class="form-error__star form-error__star-right">
                                 *
                             </span>
                         </label>
-                        <input type="password" name="repeat_password" id="repeat_password" class="reg-form__input" placeholder="Повторите пароль">
+                        <div class="form-password-input__wrapper input__password-repeat">
+                            <input type="password" name="password_repeat" id="password_repeat" placeholder="Повторите пароль" class="form-password-input__field reg-form__input-right">
+                            <button class="form-password-input__btn">
+                                <img src="{% static "images/registration/eye.svg" %}" alt="Показать пароль" class="form-password-input__icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-consent">
+                        <input type="checkbox" class="form-consent__checkbox">
+                        <label for="" class="form-consent__label">
+                            Даю
+                            <a href="#" class="form-consent__link">
+                                согласие на обработку моих персональных данных.
+                            </a>
+                        </label>
+                    </div>
+                    <div class="reg-form__btn">
+                        <button id="btn__registration" class="reg-form__button">
+                            Зарегистрироваться
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="form-checkbox">
-                <input type="checkbox" name="agreement" id="agreement" class="form-checkbox__input">
-                <label for="agreement" class="form-checkbox__label">
-                    Даю
-                    <a href="#" class="from-checkbox__link">
-                        согласие на обработку моих персональных данных.
-                    </a>
-                </label>
-            </div>
-            <div class="form-button__container">
-                <button class="form-button__next">
-                    Дальше
-                    <img src="{% static "images/registration/arrow-right.svg" %}" alt="" class="button__next-img">
-                </button>
             </div>
         </form>
     </div>
