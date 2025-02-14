@@ -11,16 +11,19 @@
 
 {% block main %}
     <div class="main">
-        <p class="main__title">
-            Регистрация
-        </p>
-        <p class="main__text">
-            Уже есть учётная запись?
-            <a href="{% url "login" %}" class="main__link">
-                Войти
-            </a>
-        </p>
-        <form action="" class="reg-form">
+        <div class="main-content">
+            <p class="main-content__title">
+                Регистрация
+            </p>
+            <p class="main-content__text">
+                Уже есть учётная запись?
+                <a href="{% url "login" %}" class="main-content__link">
+                    Войти
+                </a>
+            </p>
+        </div>
+        <form action="{% url "registration" %}" method="POST" class="reg-form">
+            {% csrf_token %}
             <div class="reg-form__left">
                 <div class="reg-form__wrapper">
                     <div class="reg-form__group">

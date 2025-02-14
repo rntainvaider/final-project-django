@@ -1,6 +1,44 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+{% endblock style %}
+
 {% block main %}
-    <p>Войти</p>
+    <div class="main">
+        <div class="main-content">
+            <p class="main-content__title">
+                Вход в<br>личный кабинет
+            </p>
+            <p class="main-content__text">
+                Нет учётной записи?
+                <a href="{% url "registration" %}" class="main-content__link">
+                    Зарегистрироваться
+                </a>
+            </p>
+        </div>
+        <form action="" class="form-login">
+            <div class="form-login__wrapper">
+                <div class="form-login__group">
+                    <label for="email" class="form-login__label">
+                        E-mail
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="Введите email" class="form-login__input">
+                </div>
+                <div class="form-login__group">
+                    <label for="password" class="form-login__label">
+                        Пароль
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" class="form-login__input">
+                </div>
+                <div class="form-login__group">
+
+                </div>
+                <div class="form-login__group">
+
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock main %}

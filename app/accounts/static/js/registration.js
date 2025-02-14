@@ -23,17 +23,17 @@ const isDigit = document.getElementById("is-digit");
 const isLower = document.getElementById("is-lower");
 const isUpper = document.getElementById("is-upper");
 const regFormPasswordErrorWrapper = document.querySelectorAll(".reg-form-password__error-wrapper");
-const regLatin = /^[A-Za-z]+$/;
+const regLatin = /^[A-Za-z0-9]+$/;
 const regLength = /^.{8,}$/;
-const regDigit = /.*\d.*/;
-const regLower = /.*[a-z].*/;
-const regUpper = /.*[A-Z].*/;
+const regDigit = /\d/;
+const regLower = /[a-z]/;
+const regUpper = /[A-Z]/;
 
 const RegForm = document.querySelector(".reg-form");
 
 const regTypeText = /^[А-Яа-я]+$/;
 const regTypePhone = /^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/;
-const regTypeEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const regTypeEmaill = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
 BtnNext.addEventListener("click", (event) => {
@@ -50,7 +50,7 @@ BtnNext.addEventListener("click", (event) => {
             if (input.value.trim() === "") {
                 errorStar.style.display = "inline";
                 input.style.border = "1px solid var(--red-red-7)";
-                hasError= true;
+                hasError = true;
             } else if (!regTypePhone.test(input.value.trim())) {
                 errorStar.style.display = "none";
                 input.style.border = "1px solid var(--red-red-7)";
@@ -63,7 +63,7 @@ BtnNext.addEventListener("click", (event) => {
             if (input.value.trim() === "") {
                 errorStar.style.display = "inline";
                 input.style.border = "1px solid var(--red-red-7)";
-                hasError= true;
+                hasError = true;
             } else if (!regTypeText.test(input.value.trim())) {
                 errorStar.style.display = "none";
                 input.style.border = "1px solid var(--red-red-7)";
@@ -135,8 +135,78 @@ for (let i = 0; i < FormPasswordInputBtn.length; i++) {
     });
 };
 
-BtnRegistration.addEventListener("click", (event) => {
+//////////////////////////////
 
+// Регулярные выражения для проверки полей
+const regTypeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Проверка email
+const regTypePassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/; // Минимум 8 символов, 1 заглавная, 1 строчная, 1 цифра
+
+// Список правил для проверки пароля
+const passwordValidators = [
+    {
+        id: "is-latin__letters",
+        regex: /^[a-zA-Z0-9]+$/, // Только латинские буквы и цифры
+    },
+    {
+        id: "is-lenght__eight",
+        regex: /^.{8,}$/, // Минимум 8 символов
+    },
+    {
+        id: "is-digit",
+        regex: /\d/, // Наличие цифры
+    },
+    {
+        id: "is-lower",
+        regex: /[a-z]/, // Наличие строчной буквы
+    },
+    {
+        id: "is-upper",
+        regex: /[A-Z]/, // Наличие заглавной буквы
+    },
+];
+
+// Сброс стилей для полей
+function resetStyles(input, errorStar) {
+    input.style.border = "1px solid var(--gray-gray-4)";
+    if (errorStar) {
+        errorStar.style.display = "none";
+    }
+}
+
+// Проверка одного поля по регулярному выражению
+function validateField(input, regex, errorStar) {
+    if (!regex.test(input.value)) {
+        input.style.border = "1px solid var(--red-red-7)";
+        if (errorStar) {
+            errorStar.style.display = "inline";
+        }
+        return false;
+    }
+    resetStyles(input, errorStar);
+    return true;
+}
+
+// Проверка пароля на основе правил
+function validatePassword(password) {
+    let isValid = true;
+    passwordValidators.forEach(({ id, regex }) => {
+        const errorElement = document.getElementById(id);
+        if (!regex.test(password)) {
+            if (errorElement) {
+                errorElement.style.display = "flex";
+            }
+            isValid = false;
+        } else {
+            if (errorElement) {
+                errorElement.style.display = "none";
+            }
+        }
+    });
+    return isValid;
+}
+
+// Главный обработчик для отправки формы
+BtnRegistration.addEventListener("click", (event) => {
     event.preventDefault();
 
     let hasError = false;
@@ -145,62 +215,65 @@ BtnRegistration.addEventListener("click", (event) => {
         const input = RegFormInpuRight[i];
         const errorStar = FormErrorStarRight[i];
 
+        // Проверка на пустоту
         if (input.value === "") {
-            errorStar.style.display = "inline";
             input.style.border = "1px solid var(--red-red-7)";
+            errorStar.style.display = "inline";
             hasError = true;
+            continue;
         } else {
-            if (i === 0) {
-                if (!regTypeEmail.test(input.value)) {
-                    input.style.border = "1px solid var(--red-red-7)";
-                    errorStar.style.display = "inline";
-                    hasError = true;
-                } else {
-                    input.style.border = "1px solid var(--gray-gray-4)";
-                    errorStar.style.display = "none";
-                }
-            }
+            resetStyles(input, errorStar);
+        }
 
-            if (i === 1) {
-                if (!regTypePassword.test(input.value)) {
-                    input.style.border = "1px solid var(--red-red-7)";
-                    errorStar.style.display = "inline";
-                    hasError = true;
-                } else {
-                    input.style.border = "1px solid var(--gray-gray-4)";
-                    errorStar.style.display = "none";
-                }
-            }
-
-            if (i === 2) {
-                const password = RegFormInpuRight[1].value;
-                const confirmPassword = input.value;
-
-                if (password !== confirmPassword) {
-                    input.style.border = "1px solid var(--red-red-7)";
-                    errorStar.style.display = "inline";
-                    hasError = true;
-                } else {
-                    input.style.border = "1px solid var(--gray-gray-4)";
-                    errorStar.style.display = "none";
-                }
+        // Проверка email (i === 0)
+        if (i === 0) {
+            if (!validateField(input, regTypeEmail, errorStar)) {
+                hasError = true;
             }
         }
-    };
 
-    for (let i = 0; i < regFormPasswordErrorWrapper.length; i++) {
-        const inputValue = regFormPasswordErrorWrapper[i].value;
-
-        if (!isLatinLetters.test(inputValue) || !isLenghtEight.test(inputValue)) {
-            regFormPasswordErrorWrapper[i].style.display = "flex";
-        } else {
-            regFormPasswordErrorWrapper[i].style.display = "none";
+        // Проверка пароля (i === 1)
+        if (i === 1) {
+            const passwordValid = validatePassword(input.value);
+            if (!passwordValid) {
+                hasError = true;
+            }
         }
-    };
 
+        // Проверка подтверждения пароля (i === 2)
+        if (i === 2) {
+            const password = RegFormInpuRight[1].value;
+            const confirmPassword = input.value;
 
+            if (password !== confirmPassword) {
+                input.style.border = "1px solid var(--red-red-7)";
+                errorStar.style.display = "inline";
+                hasError = true;
+            } else {
+                resetStyles(input, errorStar);
+            }
+        }
+    }
+
+    // Если ошибок нет, отправляем форму
     if (!hasError) {
         RegForm.submit();
-    };
+    }
+});
 
+// Сброс стилей при вводе в поля
+RegFormInpuRight.forEach((input, index) => {
+    const errorStar = FormErrorStarRight[index];
+
+    input.addEventListener("input", () => {
+        if (input.value !== "") {
+            resetStyles(input, errorStar);
+        }
+    });
+});
+
+// Реальная проверка пароля на каждом вводе
+Password.addEventListener("input", (event) => {
+    const passwordValue = event.target.value;
+    validatePassword(passwordValue);
 });
