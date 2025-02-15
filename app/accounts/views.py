@@ -2,7 +2,7 @@
 
 # from django.contrib.auth import authenticate, login, logout
 # from django.contrib.auth.decorators import login_required
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password, make_password
 
 # from django.core.paginator import Paginator
 from django.http.response import HttpResponse
@@ -19,10 +19,28 @@ def log_in(request) -> HttpResponse:
         "page_title": "Авторизация",
     }
 
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        try:
+            custom_user = CustomUsers.objects.get(email=email)
+            if check_password(password, custom_user.password):
+                return redirect("information")
+            else:
+                context["error_pas"] = "Неверный пароль"
+                # return render(request, "login.html", context=context)
+        except CustomUsers.DoesNotExist:
+            context["error_email"] = "Неверный email"
+
     return render(request, "login.html", context=context)
 
 
 def registration(request) -> HttpResponse:
+    context = {
+        "page_title": "Регистрация",
+    }
+
     if request.method == "POST":
         last_name = request.POST.get("last_name")
         first_name = request.POST.get("first_name")
@@ -44,10 +62,6 @@ def registration(request) -> HttpResponse:
             custom_users.save()
 
             return redirect("information")
-
-    context = {
-        "page_title": "Регистрация",
-    }
 
     return render(request, "registration.html", context=context)
 

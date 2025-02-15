@@ -18,25 +18,55 @@
                 </a>
             </p>
         </div>
-        <form action="" class="form-login">
+        <form action="{% url "login" %}" method="POST" class="form-login">
+            {% csrf_token %}
             <div class="form-login__wrapper">
                 <div class="form-login__group">
                     <label for="email" class="form-login__label">
                         E-mail
+                        <span class="form-login__error-star">
+                            *
+                        </span>
                     </label>
                     <input type="email" id="email" name="email" placeholder="Введите email" class="form-login__input">
+                    {% if error_email %}
+                        <div>{{ error_email }}</div>
+                    {% endif %}
                 </div>
                 <div class="form-login__group">
                     <label for="password" class="form-login__label">
                         Пароль
+                        <span class="form-login__error-star">
+                            *
+                        </span>
                     </label>
-                    <input type="password" id="password" name="password" placeholder="Введите пароль" class="form-login__input">
+                    <div class="form-login__wrapper-password">
+                        <input type="password" id="password" name="password" placeholder="Введите пароль" class="form-login__input-password">
+                        <button class="form-password-input__btn">
+                            <img src="{% static "images/registration/eye.svg" %}" alt="" class="form-password-input__icon">
+                        </button>
+                    </div>
+                    {% if error_pas %}
+                        <div>{{ error_pas }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-login__group-checkbox">
+                    <div class="form-login__group-checkbox-wrapper">
+                        <input type="checkbox" id="remember_me" name="remember_me" class="form-login__checkbox">
+                        <label for="remember_me" class="form-login__checkbox-label">
+                            Запомнить меня
+                        </label>
+                    </div>
+                    <div class="form-login__forgot-password">
+                        <a href="#" class="form-login__forgot-password-link">
+                            Забыли пароль?
+                        </a>
+                    </div>
                 </div>
                 <div class="form-login__group">
-
-                </div>
-                <div class="form-login__group">
-
+                    <button class="form-login__button">
+                        Войти
+                    </button>
                 </div>
             </div>
         </form>
